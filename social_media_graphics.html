@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOERJIA Social Media Graphics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; padding: 40px; font-family: 'Arial', sans-serif; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(540px, 1fr)); gap: 40px; justify-items: center; }
+        
+        /* Common card styles */
+        .card {
+            width: 540px; height: 540px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 40px;
+            color: white;
+        }
+        .card h2 { font-size: 36px; font-weight: 900; margin-bottom: 12px; line-height: 1.1; }
+        .card p { font-size: 16px; line-height: 1.6; opacity: 0.9; max-width: 400px; }
+        .card .tagline { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; margin-bottom: 16px; }
+        .card .brand { position: absolute; bottom: 30px; font-size: 14px; font-weight: 700; letter-spacing: 4px; opacity: 0.6; }
+        .card .contact-bar { position: absolute; bottom: 60px; font-size: 11px; opacity: 0.8; }
+        
+        /* Card 1: Company Introduction */
+        .card-intro {
+            background: linear-gradient(135deg, #0D1B2A 0%, #1B3A4B 50%, #0066CC 100%);
+        }
+        .card-intro .icon-row { display: flex; gap: 20px; margin: 20px 0; }
+        .card-intro .icon-circle {
+            width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; font-size: 24px;
+            border: 2px solid rgba(146,189,221,0.3);
+        }
+        
+        /* Card 2: Product Feature */
+        .card-product {
+            background: linear-gradient(180deg, #003366 0%, #0066CC 60%, #00A3E0 100%);
+        }
+        .card-product .product-list {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0;
+            text-align: left; width: 100%; max-width: 380px;
+        }
+        .card-product .product-item {
+            background: rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px;
+            font-size: 13px; border-left: 3px solid #92BDDD;
+        }
+        
+        /* Card 3: OEM Service */
+        .card-oem {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+        }
+        .card-oem .steps { display: flex; gap: 12px; margin: 20px 0; }
+        .card-oem .step {
+            background: rgba(0,166,224,0.15); border: 1px solid rgba(0,166,224,0.3);
+            border-radius: 10px; padding: 14px 10px; flex: 1; font-size: 11px;
+        }
+        .card-oem .step .num { font-size: 24px; font-weight: 900; color: #00A3E0; margin-bottom: 4px; }
+        
+        /* Card 4: Trust & Quality */
+        .card-trust {
+            background: linear-gradient(180deg, #0D1B2A 0%, #003366 100%);
+        }
+        .card-trust .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .card-trust .stat {
+            background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px;
+            border: 1px solid rgba(146,189,221,0.2);
+        }
+        .card-trust .stat .number { font-size: 32px; font-weight: 900; color: #92BDDD; }
+        .card-trust .stat .label { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+        
+        /* Card 5: CTA */
+        .card-cta {
+            background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+        }
+        .card-cta .whatsapp-btn {
+            background: #25D366; color: white; border-radius: 30px; padding: 14px 36px;
+            font-size: 16px; font-weight: 700; margin-top: 24px; letter-spacing: 1px;
+        }
+        
+        /* Card 6: LinkedIn Banner (wider) */
+        .card-linkedin {
+            width: 820px; height: 312px;
+            background: linear-gradient(90deg, #0D1B2A 0%, #003366 40%, #0066CC 100%);
+            flex-direction: row; justify-content: flex-start; padding: 0;
+            border-radius: 0;
+        }
+        .card-linkedin .left {
+            padding: 40px 50px; flex: 1; display: flex; flex-direction: column; justify-content: center;
+        }
+        .card-linkedin .right {
+            width: 280px; display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.03);
+        }
+        .card-linkedin .right .big-text { font-size: 72px; font-weight: 900; color: rgba(146,189,221,0.15); letter-spacing: 8px; writing-mode: vertical-rl; }
+        .card-linkedin h2 { font-size: 28px; }
+        .card-linkedin p { font-size: 13px; max-width: 350px; margin-top: 8px; }
+        
+        .instructions {
+            max-width: 540px; margin: 30px auto; padding: 20px;
+            background: white; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .instructions h3 { color: #333; margin-bottom: 10px; }
+        .instructions li { color: #666; font-size: 14px; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <h3>📋 使用说明</h3>
+    <ul>
+        <li>1. 右键每张图 → 另存为图片（或截图工具截取）</li>
+        <li>2. 用于 Facebook/LinkedIn/WhatsApp/Instagram 等社交平台发布</li>
+        <li>3. LinkedIn Banner 尺寸为 1584×396px 标准尺寸</li>
+        <li>4. 方形图适合 Instagram/Facebook 帖子</li>
+    </ul>
+</div>
+
+<div class="card-grid">
+    
+    <!-- Card 1: Company Intro -->
+    <div class="card card-intro">
+        <div class="tagline">Since 2007</div>
+        <h2>Premium Lubricants<br>for Global Markets</h2>
+        <div class="icon-row">
+            <div class="icon-circle">🏭</div>
+            <div class="icon-circle">🔬</div>
+            <div class="icon-circle">🌍</div>
+            <div class="icon-circle">✅</div>
+        </div>
+        <p>Professional manufacturer of engine oil, hydraulic oil, gear oil, grease & brake fluid. OEM/ODM available.</p>
+        <div class="contact-bar">WhatsApp: +852 6193 7889 | www.boerjia-oil.com</div>
+        <div class="brand">BOERJIA LUBRICANTS</div>
+    </div>
+    
+    <!-- Card 2: Product Range -->
+    <div class="card card-product">
+        <div class="tagline">Complete Range</div>
+        <h2>One-Stop Lubricant Solution</h2>
+        <div class="product-list">
+            <div class="product-item">🛢️ Engine Oil (SP/GF-6)</div>
+            <div class="product-item">🚛 Diesel Engine Oil</div>
+            <div class="product-item">🏍️ Motorcycle Oil</div>
+            <div class="product-item">⚙️ Hydraulic Oil</div>
+            <div class="product-item">🔩 Gear Oil (EP)</div>
+            <div class="product-item">🧴 Lubricating Grease</div>
+            <div class="product-item">🛑 Brake Fluid (DOT)</div>
+            <div class="product-item">⚓ Marine & Fuel Oil</div>
+        </div>
+        <div class="contact-bar">50,000+ Tons/Year | ISO 9001 Certified</div>
+        <div class="brand">BOERJIA LUBRICANTS</div>
+    </div>
+    
+    <!-- Card 3: OEM Service -->
+    <div class="card card-oem">
+        <div class="tagline">Your Brand, Our Expertise</div>
+        <h2>OEM / ODM Service</h2>
+        <p>Complete private label solutions from formula to packaging</p>
+        <div class="steps">
+            <div class="step"><div class="num">01</div>Formula<br>Development</div>
+            <div class="step"><div class="num">02</div>Package<br>Design</div>
+            <div class="step"><div class="num">03</div>Production<br>& QC</div>
+            <div class="step"><div class="num">04</div>Global<br>Delivery</div>
+        </div>
+        <div class="contact-bar">Flexible MOQ | Custom Formulation Available</div>
+        <div class="brand">BOERJIA LUBRICANTS</div>
+    </div>
+    
+    <!-- Card 4: Trust -->
+    <div class="card card-trust">
+        <div class="tagline">Trusted Worldwide</div>
+        <h2>Why Choose BOERJIA</h2>
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="number">18+</div>
+                <div class="label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="number">50K+</div>
+                <div class="label">Tons/Year Capacity</div>
+            </div>
+            <div class="stat">
+                <div class="number">50+</div>
+                <div class="label">Countries Served</div>
+            </div>
+            <div class="stat">
+                <div class="number">200+</div>
+                <div class="label">Product SKUs</div>
+            </div>
+        </div>
+        <div class="contact-bar">ISO 9001:2015 | ISO 14001 | API Certified | CE Approved</div>
+        <div class="brand">BOERJIA LUBRICANTS</div>
+    </div>
+    
+    <!-- Card 5: CTA -->
+    <div class="card card-cta">
+        <div class="tagline">Let's Talk</div>
+        <h2>Looking for a Reliable Lubricant Supplier?</h2>
+        <p>Get a free quotation today. OEM/ODM available with flexible MOQ.</p>
+        <div class="whatsapp-btn">📩 WhatsApp: +852 6193 7889</div>
+        <div class="contact-bar" style="bottom: 30px;">bailuguang@gmail.com | www.boerjia-oil.com</div>
+    </div>
+
+</div>
+
+<!-- LinkedIn Banner -->
+<div style="display:flex;justify-content:center;margin-top:40px;">
+    <div class="card card-linkedin">
+        <div class="left">
+            <div class="tagline" style="text-align:left;">Professional Lubricant Manufacturer</div>
+            <h2 style="text-align:left;">BOERJIA Lubricants</h2>
+            <p style="text-align:left;">Engine Oil | Hydraulic Oil | Gear Oil | Grease | Brake Fluid<br>OEM/ODM Available | Worldwide Shipping | ISO 9001 Certified<br>Since 2007 | 50,000+ Tons/Year</p>
+            <div style="font-size:12px;margin-top:12px;opacity:0.8;">📞 WhatsApp: +852 6193 7889 &nbsp;|&nbsp; 🌐 www.boerjia-oil.com</div>
+        </div>
+        <div class="right">
+            <div class="big-text">BOERJIA</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
