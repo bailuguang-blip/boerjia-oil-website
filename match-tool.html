@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>铂尔加单品图匹配</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Microsoft YaHei", sans-serif; background: #f5f5f5; color: #333; }
+.toolbar { position: sticky; top: 0; z-index: 100; background: #003d7a; color: #fff; padding: 12px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.toolbar h1 { font-size: 16px; margin-right: auto; }
+.toolbar button { padding: 8px 20px; border: none; border-radius: 6px; font-size: 13px; cursor: pointer; font-weight: 600; }
+.btn-green { background: #27ae60; color: #fff; }
+.btn-orange { background: #e67e22; color: #fff; }
+.btn-blue { background: #2980b9; color: #fff; }
+.toolbar button:hover { opacity: 0.85; }
+.stats { font-size: 13px; color: #aaa; }
+
+.main { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: calc(100vh - 50px); }
+.left { background: #fff; overflow-y: auto; max-height: calc(100vh - 50px); border-right: 1px solid #ddd; padding: 16px; }
+.right { background: #1a1a2e; overflow-y: auto; max-height: calc(100vh - 50px); padding: 16px; }
+
+.right h2 { color: #00d4ff; font-size: 14px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+.match-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 12px; color: #ccc; border-bottom: 1px solid #222; }
+.match-item img { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; background: #fff; }
+.match-item .pname { flex: 1; }
+.match-item .pid { color: #666; font-size: 11px; }
+
+.img-card { display: flex; align-items: center; gap: 12px; padding: 10px; margin-bottom: 8px; border: 2px solid #eee; border-radius: 8px; cursor: pointer; transition: all 0.2s; background: #fff; }
+.img-card:hover { border-color: #0066cc; box-shadow: 0 2px 8px rgba(0,102,204,0.15); }
+.img-card.selected { border-color: #27ae60; background: #f0fff4; }
+.img-card.matched { border-color: #27ae60; background: #f0fff4; }
+.img-card img { width: 80px; height: 80px; object-fit: contain; border-radius: 6px; background: #f9f9f9; flex-shrink: 0; cursor: zoom-in; }
+.img-card .info { flex: 1; }
+.img-card .fname { font-size: 11px; color: #999; }
+.img-card select { width: 100%; margin-top: 4px; padding: 5px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px; }
+.img-card .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-top: 4px; background: #e8f5e9; color: #2e7d32; }
+
+.unmatched { border-color: #ffcdd2 !important; background: #fff5f5 !important; }
+
+.product-ref { margin-bottom: 20px; }
+.product-ref h3 { font-size: 13px; color: #aaa; margin-bottom: 8px; }
+.product-ref .ref-item { font-size: 12px; color: #666; padding: 3px 0; }
+.product-ref .ref-item .cat { color: #00d4ff; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>🔧 铂尔加单品图 → 网站产品匹配</h1>
+  <span class="stats" id="stats">已匹配: 0/34</span>
+  <button class="btn-green" onclick="genJSON()">📋 复制匹配JSON</button>
+  <button class="btn-orange" onclick="applyToSite()">🚀 应用到网站</button>
+  <button class="btn-blue" onclick="window.open('index.html')">👁️ 预览网站</button>
+</div>
+
+<div class="main">
+  <div class="left" id="left"></div>
+  <div class="right">
+    <h2>📌 网站产品列表（共25款）</h2>
+    <div class="product-ref" id="refList"></div>
+    <h2>✅ 已匹配结果</h2>
+    <div id="matchedList"></div>
+  </div>
+</div>
+
+<script>
+const products = [
+  { id: 'sp-5w40', name: 'SP 5W-40 全合成发动机油', cat: '汽油机油' },
+  { id: 'sp-gf6', name: 'SP GF-6 5W-30 机油', cat: '汽油机油' },
+  { id: 's6-5w30', name: 'S6 5W-30 全合成机油', cat: '汽油机油' },
+  { id: 'qn-f6', name: 'QN-F6 SL/CF 5W-30 机油', cat: '汽油机油' },
+  { id: 'cj4', name: 'CJ-4/SN+ 10W-40 柴油机油', cat: '柴油机油' },
+  { id: 'cf4', name: 'HX6000 CF-4 20W-50 柴油机油', cat: '柴油机油' },
+  { id: '5000-4t', name: '5000 合成 4T 摩托车机油', cat: '摩托车机油' },
+  { id: 'pao-4t', name: 'PAO 4T SP 5W-40 摩托车机油', cat: '摩托车机油' },
+  { id: 'sm-4t', name: 'SM 10W-40 4T 摩托车机油', cat: '摩托车机油' },
+  { id: 'atf-6hp', name: 'ATF-6HP 6速自动变速箱油', cat: '传动油' },
+  { id: 'lhm-46', name: 'L-HM 46# 液压油', cat: '液压油' },
+  { id: 'lhm-68', name: 'L-HM 68# 液压油', cat: '液压油' },
+  { id: 'lhv-46', name: 'L-HV 低温抗磨液压油', cat: '液压油' },
+  { id: 'ep-150', name: 'EP 150 工业齿轮油', cat: '齿轮油' },
+  { id: 'ep-220', name: 'EP 220 工业齿轮油', cat: '齿轮油' },
+  { id: 'lithium-grease', name: '锂基润滑脂', cat: '润滑脂' },
+  { id: 'mos2-grease', name: '二硫化钼润滑脂', cat: '润滑脂' },
+  { id: 'sulfonate-grease', name: '复合磺酸钙基润滑脂', cat: '润滑脂' },
+  { id: 'polyurea-grease', name: '聚脲润滑脂', cat: '润滑脂' },
+  { id: 'bentonite-grease', name: '膨润土润滑脂', cat: '润滑脂' },
+  { id: 'aluminum-grease', name: '铝复合润滑脂', cat: '润滑脂' },
+  { id: 'dot4', name: 'DOT 4 刹车油', cat: '刹车油' },
+  { id: 'dot3', name: 'DOT 3 刹车油', cat: '刹车油' },
+  { id: 'marine', name: '船用润滑油', cat: '船用油' },
+  { id: 'fuel-no4', name: '4# 工业燃料油', cat: '燃料油' },
+];
+
+// Product reference list
+const refList = document.getElementById('refList');
+products.forEach((p, i) => {
+  refList.innerHTML += `<div class="ref-item"><span class="cat">[${p.cat}]</span> ${i+1}. ${p.name} <span class="pid" style="color:#555">(${p.id})</span></div>`;
+});
+
+// Image files
+const basePath = 'images/single/';
+const files = [
+  '微信图片_20260429113729_85_317.jpg',
+  '微信图片_20260429120349_86_317.jpg',
+  '微信图片_20260429120350_87_317.jpg',
+  '微信图片_20260429120350_88_317.jpg',
+  '微信图片_20260429120351_89_317.jpg',
+  '微信图片_20260429120352_90_317.jpg',
+  '微信图片_20260429120353_91_317.jpg',
+  '微信图片_20260429120353_92_317.jpg',
+  '微信图片_20260429120354_93_317.jpg',
+  '微信图片_20260429120355_94_317.jpg',
+  '微信图片_20260429120356_95_317.jpg',
+  '微信图片_20260429120356_96_317.jpg',
+  '微信图片_20260429120357_97_317.jpg',
+  '微信图片_20260429120400_98_317.jpg',
+  '微信图片_20260429120401_100_317.jpg',
+  '微信图片_20260429120401_99_317.jpg',
+  '微信图片_20260429120402_101_317.jpg',
+  '微信图片_20260429120403_102_317.jpg',
+  '微信图片_20260429120404_103_317.jpg',
+  '微信图片_20260429120405_104_317.jpg',
+  '微信图片_20260429120405_105_317.jpg',
+  '微信图片_20260429120406_106_317.jpg',
+  '微信图片_20260429120407_107_317.jpg',
+  '微信图片_20260429120408_108_317.jpg',
+  '微信图片_20260429120409_109_317.jpg',
+  '微信图片_20260429120409_110_317.jpg',
+  '微信图片_20260429120410_111_317.jpg',
+  '微信图片_20260429120411_112_317.jpg',
+  '微信图片_20260429120412_113_317.jpg',
+  '微信图片_20260429120412_114_317.jpg',
+  '微信图片_20260429120413_115_317.jpg',
+  '微信图片_20260429120414_116_317.jpg',
+  '微信图片_20260429120415_117_317.jpg',
+  '微信图片_20260429120415_118_317.jpg',
+];
+
+const left = document.getElementById('left');
+const usedProducts = new Set();
+
+files.forEach((f, i) => {
+  const card = document.createElement('div');
+  card.className = 'img-card';
+  card.id = 'card-' + i;
+  
+  const options = products.map(p => {
+    const used = usedProducts.has(p.id) ? ' (已选)' : '';
+    return `<option value="${p.id}">[${p.cat}] ${p.name}${used}</option>`;
+  }).join('');
+  
+  card.innerHTML = `
+    <img src="${basePath}${encodeURIComponent(f)}" title="点击放大">
+    <div class="info">
+      <div class="fname">#${i+1} ${f}</div>
+      <select id="sel-${i}" onchange="onSelect(${i})">
+        <option value="">-- 选择对应产品 --</option>
+        ${options}
+      </select>
+      <div id="tag-${i}"></div>
+    </div>
+  `;
+  left.appendChild(card);
+});
+
+function onSelect(idx) {
+  const sel = document.getElementById('sel-' + idx);
+  const card = document.getElementById('card-' + idx);
+  const tag = document.getElementById('tag-' + idx);
+  
+  // Reset
+  card.classList.remove('matched', 'unmatched');
+  tag.innerHTML = '';
+  
+  if (sel.value) {
+    const p = products.find(x => x.id === sel.value);
+    card.classList.add('matched');
+    tag.innerHTML = `<span class="tag">✅ ${p.name}</span>`;
+    updateMatchedList();
+  }
+  updateStats();
+}
+
+function updateStats() {
+  const matched = files.filter((_, i) => document.getElementById('sel-' + i).value).length;
+  document.getElementById('stats').textContent = `已匹配: ${matched}/${files.length}`;
+}
+
+function updateMatchedList() {
+  const list = document.getElementById('matchedList');
+  list.innerHTML = '';
+  files.forEach((f, i) => {
+    const sel = document.getElementById('sel-' + i);
+    if (sel && sel.value) {
+      const p = products.find(x => x.id === sel.value);
+      const item = document.createElement('div');
+      item.className = 'match-item';
+      item.innerHTML = `
+        <img src="${basePath}${encodeURIComponent(f)}">
+        <span class="pname">${f}</span>
+        <span class="pid">→ ${p.name}</span>
+      `;
+      list.appendChild(item);
+    }
+  });
+}
+
+function genJSON() {
+  const result = [];
+  files.forEach((f, i) => {
+    const sel = document.getElementById('sel-' + i);
+    if (sel.value) {
+      result.push({ file: f, productId: sel.value });
+    }
+  });
+  const json = JSON.stringify(result, null, 2);
+  navigator.clipboard.writeText(json).then(() => {
+    alert('已复制 ' + result.length + ' 条匹配记录到剪贴板！\n\n请将内容发给我，我会应用到网站。');
+  });
+}
+
+function applyToSite() {
+  const result = [];
+  files.forEach((f, i) => {
+    const sel = document.getElementById('sel-' + i);
+    if (sel.value) {
+      result.push({ file: f, productId: sel.value });
+    }
+  });
+  if (result.length === 0) {
+    alert('请先选择至少一个匹配！');
+    return;
+  }
+  // Save to localStorage for the apply script to read
+  localStorage.setItem('boerjia_match', JSON.stringify(result));
+  alert('匹配数据已保存！\n共 ' + result.length + ' 条记录。\n\n请告诉我，我会用这些数据更新网站。');
+}
+</script>
+
+</body>
+</html>
