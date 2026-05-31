@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博尔佳素材分配工具</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f0f1a;color:#fff;font-family:'Segoe UI',Arial,sans-serif;padding:20px}
+h1{text-align:center;color:#4af;margin-bottom:4px;font-size:22px}
+p.sub{text-align:center;color:#888;margin-bottom:16px;font-size:13px}
+
+.toolbar{display:flex;gap:10px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:2px solid #444;border-radius:6px;background:#1a1a2e;color:#fff;cursor:pointer;font-size:13px;transition:all .2s}
+.toolbar button:hover,.toolbar button.active{border-color:#4af;background:#1a2a4e}
+
+.stats{display:flex;gap:20px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.stat-box{background:#1a1a2e;border:1px solid #333;border-radius:8px;padding:10px 20px;text-align:center;min-width:100px}
+.stat-box .num{font-size:28px;font-weight:900;color:#4af}
+.stat-box .label{font-size:11px;color:#888;margin-top:2px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:#1a1a2e;border:2px solid #333;border-radius:10px;overflow:hidden;position:relative;transition:all .3s}
+.card:hover{border-color:#4af;transform:translateY(-2px)}
+.card img{width:100%;height:220px;object-fit:contain;background:#0a0a15;display:block;cursor:pointer}
+.card .header{display:flex;align-items:center;justify-content:space-between;padding:8px 10px}
+.card .num{background:#e00;color:#fff;font-size:14px;font-weight:bold;padding:3px 10px;border-radius:4px}
+.card .size{color:#666;font-size:10px}
+.card .selector{padding:0 10px 10px}
+.card .selector select{width:100%;padding:6px 8px;border:1px solid #444;border-radius:4px;background:#0a0a15;color:#fff;font-size:12px;cursor:pointer}
+.card .selector select:focus{border-color:#4af;outline:none}
+
+.category-legend{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:#888}
+.legend-dot{width:10px;height:10px;border-radius:50%}
+
+.actions{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.actions button{padding:12px 28px;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-apply{background:linear-gradient(135deg,#0066cc,#00aaff);color:#fff}
+.btn-apply:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(0,102,204,.4)}
+.btn-reset{background:#333;color:#aaa}
+.btn-reset:hover{background:#444}
+.btn-export{background:#2a5a2a;color:#8f8}
+.btn-export:hover{background:#3a6a3a}
+
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:999;justify-content:center;align-items:center;cursor:pointer}
+.modal img{max-width:95%;max-height:95%;object-fit:contain}
+
+.toast{display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#2a5a2a;color:#8f8;padding:12px 24px;border-radius:8px;font-size:14px;z-index:9999;border:1px solid #4a4}
+
+/* Category colors */
+.cat-product{border-color:#e67e22 !important}
+.cat-factory{border-color:#27ae60 !important}
+.cat-cert{border-color:#3498db !important}
+.cat-logo{border-color:#9b59b6 !important}
+.cat-team{border-color:#e74c3c !important}
+.cat-other{border-color:#555 !important}
+.cat-banner{border-color:#f39c12 !important}
+</style>
+</head>
+<body>
+<h1>🛢️ 博尔佳素材分配工具</h1>
+<p class="sub">26张素材图片 | 点击图片放大 | 选择分类后点击"应用分配"</p>
+
+<div class="toolbar">
+  <button class="active" onclick="filterView('all')">全部 (26)</button>
+  <button onclick="filterView('product')">📦 产品图</button>
+  <button onclick="filterView('factory')">🏭 工厂图</button>
+  <button onclick="filterView('banner')">🖼️ 横幅图</button>
+  <button onclick="filterView('cert')">📄 证书图</button>
+  <button onclick="filterView('logo')">🏷️ Logo</button>
+  <button onclick="filterView('unassigned')">⬜ 未分配</button>
+</div>
+
+<div class="stats">
+  <div class="stat-box"><div class="num" id="statProduct">0</div><div class="label">产品图</div></div>
+  <div class="stat-box"><div class="num" id="statFactory">0</div><div class="label">工厂图</div></div>
+  <div class="stat-box"><div class="num" id="statBanner">0</div><div class="label">横幅图</div></div>
+  <div class="stat-box"><div class="num" id="statCert">0</div><div class="label">证书</div></div>
+  <div class="stat-box"><div class="num" id="statLogo">0</div><div class="label">Logo</div></div>
+  <div class="stat-box"><div class="num" id="statOther">0</div><div class="label">其他</div></div>
+  <div class="stat-box"><div class="num" id="statUnassigned">26</div><div class="label">未分配</div></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="actions">
+  <button class="btn-apply" onclick="applyAssignment()">✅ 应用分配到网站</button>
+  <button class="btn-export" onclick="exportConfig()">📋 导出分配方案</button>
+  <button class="btn-reset" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="modal" id="modal" onclick="this.style.display='none'">
+  <img id="bigImg">
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const images = [
+  {id:1,  file:'raw-01.jpg', size:'1707x1280', w:1707, h:1280, cat:'', note:''},
+  {id:2,  file:'raw-02.jpg', size:'1707x1280', w:1707, h:1280, cat:'', note:''},
+  {id:3,  file:'raw-03.jpg', size:'1707x1280', w:1707, h:1280, cat:'', note:''},
+  {id:4,  file:'raw-04.jpg', size:'1280x960',  w:1280, h:960,  cat:'', note:''},
+  {id:5,  file:'raw-05.jpg', size:'1280x960',  w:1280, h:960,  cat:'', note:''},
+  {id:6,  file:'raw-06.jpg', size:'1279x1706', w:1279, h:1706, cat:'', note:''},
+  {id:7,  file:'raw-07.jpg', size:'1920x1080', w:1920, h:1080, cat:'banner', note:'1920宽屏-适合Banner'},
+  {id:8,  file:'raw-08.jpg', size:'1920x1080', w:1920, h:1080, cat:'banner', note:'1920宽屏-适合Banner'},
+  {id:9,  file:'raw-09.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:10, file:'raw-10.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:11, file:'raw-11.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:12, file:'raw-12.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:13, file:'raw-13.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:14, file:'raw-14.jpg', size:'1707x1280', w:1707, h:1280, cat:'product', note:'横版-疑似产品'},
+  {id:15, file:'raw-15.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:16, file:'raw-16.jpg', size:'1706x1279', w:1706, h:1279, cat:'factory', note:'横版-疑似工厂/场景'},
+  {id:17, file:'raw-17.jpg', size:'1706x1279', w:1706, h:1279, cat:'factory', note:'横版-疑似工厂/场景'},
+  {id:18, file:'raw-18.jpg', size:'1279x1706', w:1279, h:1706, cat:'product', note:'竖版-疑似产品'},
+  {id:19, file:'raw-19.jpg', size:'1279x1706', w:1279, h:1706, cat:'product', note:'竖版-疑似产品'},
+  {id:20, file:'raw-20.jpg', size:'1279x1706', w:1279, h:1706, cat:'product', note:'竖版-疑似产品'},
+  {id:21, file:'raw-21.jpg', size:'1706x1279', w:1706, h:1279, cat:'factory', note:'横版-疑似工厂/场景'},
+  {id:22, file:'raw-22.jpg', size:'1706x1279', w:1706, h:1279, cat:'factory', note:'横版-疑似工厂/场景'},
+  {id:23, file:'raw-23.jpg', size:'1279x1706', w:1279, h:1706, cat:'product', note:'竖版-疑似产品'},
+  {id:24, file:'raw-24.jpg', size:'1440x1080', w:1440, h:1080, cat:'banner', note:'1440宽-适合Banner'},
+  {id:25, file:'raw-25.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+  {id:26, file:'raw-26.jpg', size:'1280x1707', w:1280, h:1707, cat:'product', note:'竖版-疑似产品包装'},
+];
+
+const categories = [
+  {value:'', label:'⬜ 未分配'},
+  {value:'product', label:'📦 产品包装图'},
+  {value:'factory', label:'🏭 工厂/生产线'},
+  {value:'banner', label:'🖼️ Banner横幅'},
+  {value:'cert', label:'📄 资质证书'},
+  {value:'logo', label:'🏷️ Logo/品牌'},
+  {value:'team', label:'👥 团队/活动'},
+  {value:'other', label:'📎 其他'},
+];
+
+// Product mapping for engine/diesel/motorcycle etc
+const productSlots = [
+  {id:'sp-5w40', name:'SP 5W-40', cat:'engine'},
+  {id:'sp-gf6', name:'SP GF-6 5W-30', cat:'engine'},
+  {id:'s6-5w30', name:'S6 5W-30', cat:'engine'},
+  {id:'qn-f6', name:'QN-F6 5W-30', cat:'engine'},
+  {id:'cj4', name:'CJ-4 10W-40', cat:'diesel'},
+  {id:'cf4', name:'CF-4 20W-50', cat:'diesel'},
+  {id:'5000-4t', name:'5000 4T', cat:'motorcycle'},
+  {id:'pao-4t', name:'PAO 4T 5W-40', cat:'motorcycle'},
+  {id:'sm-4t', name:'SM 10W-40 4T', cat:'motorcycle'},
+  {id:'atf-6hp', name:'ATF-6HP', cat:'transmission'},
+  {id:'lhm-46', name:'L-HM 46#', cat:'hydraulic'},
+  {id:'lhm-68', name:'L-HM 68#', cat:'hydraulic'},
+  {id:'lhv-46', name:'L-HV 46#', cat:'hydraulic'},
+  {id:'ep-150', name:'EP 150', cat:'gear'},
+  {id:'ep-220', name:'EP 220', cat:'gear'},
+  {id:'lithium-grease', name:'Lithium Grease', cat:'grease'},
+  {id:'mos2-grease', name:'MoS2 Grease', cat:'grease'},
+  {id:'sulfonate-grease', name:'Sulfonate Grease', cat:'grease'},
+  {id:'polyurea-grease', name:'Polyurea Grease', cat:'grease'},
+  {id:'bentonite-grease', name:'Bentonite Grease', cat:'grease'},
+  {id:'aluminum-grease', name:'Aluminum Complex', cat:'grease'},
+  {id:'dot4', name:'DOT 4', cat:'brake'},
+  {id:'dot3', name:'DOT 3', cat:'brake'},
+  {id:'marine', name:'Marine Oil', cat:'marine'},
+  {id:'fuel-no4', name:'Fuel Oil No.4', cat:'fuel'},
+];
+
+let currentFilter = 'all';
+
+function render() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  
+  const filtered = currentFilter === 'all' ? images :
+    currentFilter === 'unassigned' ? images.filter(i => !i.cat) :
+    images.filter(i => i.cat === currentFilter);
+  
+  filtered.forEach(img => {
+    const catClass = img.cat ? 'cat-' + img.cat : '';
+    const card = document.createElement('div');
+    card.className = 'card ' + catClass;
+    card.dataset.id = img.id;
+    
+    let options = categories.map(c => 
+      `<option value="${c.value}" ${img.cat === c.value ? 'selected' : ''}>${c.label}</option>`
+    ).join('');
+    
+    card.innerHTML = `
+      <div class="header">
+        <span class="num">#${String(img.id).padStart(2,'0')}</span>
+        <span class="size">${img.size}</span>
+      </div>
+      <img src="images/${img.file}" onclick="showBig('images/${img.file}')" title="点击放大">
+      <div class="selector">
+        <select onchange="assignCat(${img.id}, this.value)">
+          ${options}
+        </select>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  
+  updateStats();
+}
+
+function showBig(src) {
+  document.getElementById('bigImg').src = src;
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function assignCat(id, cat) {
+  const img = images.find(i => i.id === id);
+  if (img) {
+    img.cat = cat;
+    render();
+  }
+}
+
+function filterView(type) {
+  currentFilter = type;
+  document.querySelectorAll('.toolbar button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  render();
+}
+
+function updateStats() {
+  const counts = {product:0, factory:0, banner:0, cert:0, logo:0, team:0, other:0, unassigned:0};
+  images.forEach(i => {
+    if (i.cat && counts[i.cat] !== undefined) counts[i.cat]++;
+    else counts.unassigned++;
+  });
+  document.getElementById('statProduct').textContent = counts.product;
+  document.getElementById('statFactory').textContent = counts.factory;
+  document.getElementById('statBanner').textContent = counts.banner;
+  document.getElementById('statCert').textContent = counts.cert;
+  document.getElementById('statLogo').textContent = counts.logo;
+  document.getElementById('statOther').textContent = counts.other + counts.team;
+  document.getElementById('statUnassigned').textContent = counts.unassigned;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+}
+
+function exportConfig() {
+  const config = images.map(i => ({
+    id: i.id,
+    file: i.file,
+    size: i.size,
+    category: i.cat || 'unassigned'
+  }));
+  const text = JSON.stringify(config, null, 2);
+  
+  // Copy to clipboard
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('📋 分配方案已复制到剪贴板！');
+  }).catch(() => {
+    // Fallback: create downloadable file
+    const blob = new Blob([text], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'image-assignment.json';
+    a.click();
+    showToast('📥 分配方案已下载！');
+  });
+}
+
+function applyAssignment() {
+  const productImgs = images.filter(i => i.cat === 'product');
+  const factoryImgs = images.filter(i => i.cat === 'factory');
+  const bannerImgs = images.filter(i => i.cat === 'banner');
+  
+  if (productImgs.length === 0 && factoryImgs.length === 0 && bannerImgs.length === 0) {
+    showToast('⚠️ 请先选择至少一张图片的分类！');
+    return;
+  }
+  
+  // Build assignment config and save to localStorage for the main site to pick up
+  const config = {
+    productImages: productImgs.map(i => ({id: i.id, file: 'images/' + i.file})),
+    factoryImages: factoryImgs.map(i => ({id: i.id, file: 'images/' + i.file})),
+    bannerImages: bannerImgs.map(i => ({id: i.id, file: 'images/' + i.file})),
+    certImages: images.filter(i => i.cat === 'cert').map(i => ({id: i.id, file: 'images/' + i.file})),
+    logoImages: images.filter(i => i.cat === 'logo').map(i => ({id: i.id, file: 'images/' + i.file})),
+  };
+  
+  localStorage.setItem('boerjia_image_assignment', JSON.stringify(config));
+  showToast(`✅ 已分配: ${productImgs.length}张产品 + ${factoryImgs.length}张工厂 + ${bannerImgs.length}张Banner`);
+  
+  // Also output the config for reference
+  console.log('Image Assignment Config:', config);
+}
+
+function resetAll() {
+  images.forEach(i => i.cat = '');
+  render();
+  showToast('🔄 已重置所有分配');
+}
+
+// Init
+render();
+</script>
+</body>
+</html>
