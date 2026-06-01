@@ -18,3 +18,4 @@ Deployed on **Cloudflare Pages** with custom domain `boerjia-oil.com`.
 ## Note
 
 Local images are currently placeholders. Replace with actual product/company images.
+// Force rebuild: 2026/06/01 ÷‹“ª 10:42:55.08 
