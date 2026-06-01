@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -174,7 +174,8 @@
         .product-card { background: #fff; border: 1px solid #e8e8e8; transition: all 0.3s; overflow: hidden; }
         .product-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
         .product-card-img { width: 100%; aspect-ratio: 1; overflow: hidden; background: #f0f0f0; }
-        .product-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .product-card-img { width: 100%; aspect-ratio: 1; overflow: hidden; background: #f8f8f8; display: flex; align-items: center; justify-content: center; }
+        .product-card-img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s; }
         .product-card:hover .product-card-img img { transform: scale(1.05); }
         .product-card-body { padding: 12px 15px; }
         .product-card-title { font-size: 13px; font-weight: 500; color: #333; line-height: 1.4; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 36px; }
@@ -378,12 +379,12 @@
                 <i class="fas fa-globe"></i> <span id="currentLang">English</span> <i class="fas fa-chevron-down" style="font-size:10px;"></i>
                 <div class="lang-menu">
                     <a href="#" onclick="switchLang('en')">English</a>
-                    <a href="#" onclick="switchLang('zh')">中文</a>
-                    <a href="#" onclick="switchLang('vi')">Tiếng Việt</a>
+                    <a href="#" onclick="switchLang('zh')">����</a>
+                    <a href="#" onclick="switchLang('vi')">Ti?ng Vi?t</a>
                     <a href="#" onclick="switchLang('id')">Bahasa Indonesia</a>
-                    <a href="#" onclick="switchLang('th')">ไทย</a>
+                    <a href="#" onclick="switchLang('th')">???</a>
                     <a href="#" onclick="switchLang('ms')">Bahasa Melayu</a>
-                    <a href="#" onclick="switchLang('ar')">العربية</a>
+                    <a href="#" onclick="switchLang('ar')">???????</a>
                 </div>
             </div>
             <a href="#about" class="cert-link" data-i18n="topbar.cert">Certificate</a>
@@ -437,7 +438,7 @@
 <div class="breadcrumb">
     <div class="container">
         <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" data-i18n="nav.home">Home</a>
-        <span>›</span>
+        <span>?</span>
         <strong data-i18n="nav.products">Products</strong>
     </div>
 </div>
@@ -534,10 +535,9 @@
                         <a href="#" onclick="searchByTag('brake');return false;">brake fluid</a>
                         <a href="#" onclick="searchByTag('grease');return false;">lubricating grease</a>
                         <a href="#" onclick="searchByTag('diesel');return false;">diesel engine oil</a>
-                        <a href="#" onclick="searchByTag('motorcycle');return false;">motorcycle oil</a>
                         <a href="#" onclick="searchByTag('transmission');return false;">transmission fluid</a>
-                        <a href="#" onclick="searchByTag('marine');return false;">marine oil</a>
-                        <a href="#" onclick="searchByTag('fuel');return false;">fuel oil</a>
+                        <a href="#" onclick="searchByTag('psf');return false;">power steering fluid</a>
+                        <a href="#" onclick="searchByTag('coolant');return false;">coolant/antifreeze</a>
                         <a href="#" onclick="searchByTag('synthetic');return false;">synthetic oil</a>
                         <a href="#" onclick="searchByTag('OEM');return false;">OEM lubricant</a>
                     </div>
@@ -744,7 +744,7 @@ const allProducts = [
     "id": "gasoline-sm-5w30",
     "name": "Gasoline Engine Oil API SM 5W-30",
     "category": "gasoline",
-    "img": "images/products/下载 (33).png",
+    "img": "images/products/���� (33).png",
     "specs": [
       [
         "Type",
@@ -772,7 +772,7 @@ const allProducts = [
     "id": "gasoline-sm-5w40",
     "name": "Gasoline Engine Oil API SM 5W-40",
     "category": "gasoline",
-    "img": "images/products/下载 (33).png",
+    "img": "images/products/���� (33).png",
     "specs": [
       [
         "Type",
@@ -800,7 +800,7 @@ const allProducts = [
     "id": "gasoline-sn-0w20",
     "name": "Gasoline Engine Oil API SN 0W-20",
     "category": "gasoline",
-    "img": "images/products/下载 (34).png",
+    "img": "images/products/���� (34).png",
     "specs": [
       [
         "Type",
@@ -828,7 +828,7 @@ const allProducts = [
     "id": "gasoline-sn-5w30",
     "name": "Gasoline Engine Oil API SN 5W-30",
     "category": "gasoline",
-    "img": "images/products/下载 (34).png",
+    "img": "images/products/���� (34).png",
     "specs": [
       [
         "Type",
@@ -856,7 +856,7 @@ const allProducts = [
     "id": "gasoline-sp-5w30",
     "name": "Gasoline Engine Oil API SP 5W-30",
     "category": "gasoline",
-    "img": "images/products/下载 (36).png",
+    "img": "images/products/���� (36).png",
     "specs": [
       [
         "Type",
@@ -888,7 +888,7 @@ const allProducts = [
     "id": "gasoline-sp-0w20",
     "name": "Gasoline Engine Oil API SP 0W-20",
     "category": "gasoline",
-    "img": "images/products/下载 (36).png",
+    "img": "images/products/���� (36).png",
     "specs": [
       [
         "Type",
@@ -916,7 +916,7 @@ const allProducts = [
     "id": "gasoline-sn-plus-0w20",
     "name": "Gasoline Engine Oil API SN PLUS 0W-20",
     "category": "gasoline",
-    "img": "images/products/下载 (35).png",
+    "img": "images/products/���� (35).png",
     "specs": [
       [
         "Type",
@@ -948,7 +948,7 @@ const allProducts = [
     "id": "gasoline-sn-plus-5w30",
     "name": "Gasoline Engine Oil API SN PLUS 5W-30",
     "category": "gasoline",
-    "img": "images/products/下载 (37).png",
+    "img": "images/products/���� (37).png",
     "specs": [
       [
         "Type",
@@ -980,7 +980,7 @@ const allProducts = [
     "id": "diesel-cf-15w40",
     "name": "Diesel Engine Oil API CF 15W-40",
     "category": "diesel",
-    "img": "images/products/下载.png",
+    "img": "images/products/����.png",
     "specs": [
       [
         "Type",
@@ -1008,7 +1008,7 @@ const allProducts = [
     "id": "diesel-cf-20w50",
     "name": "Diesel Engine Oil API CF 20W-50",
     "category": "diesel",
-    "img": "images/products/下载.png",
+    "img": "images/products/����.png",
     "specs": [
       [
         "Type",
@@ -1036,7 +1036,7 @@ const allProducts = [
     "id": "diesel-cf4-10w30",
     "name": "Diesel Engine Oil API CF-4 10W-30",
     "category": "diesel",
-    "img": "images/products/下载 (2).png",
+    "img": "images/products/���� (2).png",
     "specs": [
       [
         "Type",
@@ -1064,7 +1064,7 @@ const allProducts = [
     "id": "diesel-cf4-15w40",
     "name": "Diesel Engine Oil API CF-4 15W-40",
     "category": "diesel",
-    "img": "images/products/下载 (2).png",
+    "img": "images/products/���� (2).png",
     "specs": [
       [
         "Type",
@@ -1092,7 +1092,7 @@ const allProducts = [
     "id": "diesel-ch4-15w40",
     "name": "Diesel Engine Oil API CH-4 15W-40",
     "category": "diesel",
-    "img": "images/products/下载 (3).png",
+    "img": "images/products/���� (3).png",
     "specs": [
       [
         "Type",
@@ -1120,7 +1120,7 @@ const allProducts = [
     "id": "diesel-ch4-20w50",
     "name": "Diesel Engine Oil API CH-4 20W-50",
     "category": "diesel",
-    "img": "images/products/下载 (3).png",
+    "img": "images/products/���� (3).png",
     "specs": [
       [
         "Type",
@@ -1148,7 +1148,7 @@ const allProducts = [
     "id": "diesel-ci4-10w40",
     "name": "Diesel Engine Oil API CI-4 10W-40",
     "category": "diesel",
-    "img": "images/products/下载 (4).png",
+    "img": "images/products/���� (4).png",
     "specs": [
       [
         "Type",
@@ -1176,7 +1176,7 @@ const allProducts = [
     "id": "diesel-ci4-15w40",
     "name": "Diesel Engine Oil API CI-4 15W-40",
     "category": "diesel",
-    "img": "images/products/下载 (4).png",
+    "img": "images/products/���� (4).png",
     "specs": [
       [
         "Type",
@@ -1204,7 +1204,7 @@ const allProducts = [
     "id": "diesel-ci4-plus",
     "name": "Diesel Engine Oil API CI-4 PLUS",
     "category": "diesel",
-    "img": "images/products/微信图片_20260524125528_61_328.png",
+    "img": "images/products/΢��ͼƬ_20260524125528_61_328.png",
     "specs": [
       [
         "Type",
@@ -1228,7 +1228,7 @@ const allProducts = [
     "id": "diesel-fa4-10w30",
     "name": "Diesel Engine Oil API FA-4 10W-30",
     "category": "diesel",
-    "img": "images/products/下载 (7).png",
+    "img": "images/products/���� (7).png",
     "specs": [
       [
         "Type",
@@ -1260,7 +1260,7 @@ const allProducts = [
     "id": "diesel-fa4-15w40",
     "name": "Diesel Engine Oil API FA-4 15W-40 Fully Synthetic",
     "category": "diesel",
-    "img": "images/products/微信图片_20260524125449_58_328.png",
+    "img": "images/products/΢��ͼƬ_20260524125449_58_328.png",
     "specs": [
       [
         "Type",
@@ -1288,7 +1288,7 @@ const allProducts = [
     "id": "diesel-ck4-10w30",
     "name": "Diesel Engine Oil API CK-4 10W-30",
     "category": "diesel",
-    "img": "images/products/下载 (5).png",
+    "img": "images/products/���� (5).png",
     "specs": [
       [
         "Type",
@@ -1320,7 +1320,7 @@ const allProducts = [
     "id": "diesel-ck4-15w40",
     "name": "Diesel Engine Oil API CK-4 15W-40",
     "category": "diesel",
-    "img": "images/products/下载 (6).png",
+    "img": "images/products/���� (6).png",
     "specs": [
       [
         "Type",
@@ -1348,7 +1348,7 @@ const allProducts = [
     "id": "gear-gl4-75w90",
     "name": "Gear Oil API GL-4 75W-90",
     "category": "gear",
-    "img": "images/products/下载 (8).png",
+    "img": "images/products/���� (8).png",
     "specs": [
       [
         "Type",
@@ -1376,7 +1376,7 @@ const allProducts = [
     "id": "gear-gl5-85w140",
     "name": "Gear Oil API GL-5 85W-140",
     "category": "gear",
-    "img": "images/products/下载 (9).png",
+    "img": "images/products/���� (9).png",
     "specs": [
       [
         "Type",
@@ -1404,7 +1404,7 @@ const allProducts = [
     "id": "gear-gl5-mt1",
     "name": "Gear Oil API GL-5+MT-1 75W-90",
     "category": "gear",
-    "img": "images/products/下载 (10).png",
+    "img": "images/products/���� (10).png",
     "specs": [
       [
         "Type",
@@ -1432,7 +1432,7 @@ const allProducts = [
     "id": "gear-2105d",
     "name": "Gear Oil 2105D 85W-140",
     "category": "gear",
-    "img": "images/products/下载 (11).png",
+    "img": "images/products/���� (11).png",
     "specs": [
       [
         "Type",
@@ -1460,7 +1460,7 @@ const allProducts = [
     "id": "hydraulic-hm32",
     "name": "Anti-wear Hydraulic Oil HM32",
     "category": "hydraulic",
-    "img": "images/products/下载 (12).png",
+    "img": "images/products/���� (12).png",
     "specs": [
       [
         "Type",
@@ -1488,7 +1488,7 @@ const allProducts = [
     "id": "hydraulic-hm46",
     "name": "Anti-wear Hydraulic Oil HM46",
     "category": "hydraulic",
-    "img": "images/products/下载 (13).png",
+    "img": "images/products/���� (13).png",
     "specs": [
       [
         "Type",
@@ -1516,7 +1516,7 @@ const allProducts = [
     "id": "hydraulic-hm68",
     "name": "Anti-wear Hydraulic Oil HM68",
     "category": "hydraulic",
-    "img": "images/products/下载 (14).png",
+    "img": "images/products/���� (14).png",
     "specs": [
       [
         "Type",
@@ -1544,7 +1544,7 @@ const allProducts = [
     "id": "hydraulic-hv46",
     "name": "Wide-Temperature Hydraulic Oil HV46",
     "category": "hydraulic",
-    "img": "images/products/下载 (15).png",
+    "img": "images/products/���� (15).png",
     "specs": [
       [
         "Type",
@@ -1572,7 +1572,7 @@ const allProducts = [
     "id": "hydraulic-hv68",
     "name": "Wide-Temperature Hydraulic Oil HV68",
     "category": "hydraulic",
-    "img": "images/products/下载 (16).png",
+    "img": "images/products/���� (16).png",
     "specs": [
       [
         "Type",
@@ -1600,7 +1600,7 @@ const allProducts = [
     "id": "hydraulic-hs46",
     "name": "Ashless High VI Hydraulic Oil HS46",
     "category": "hydraulic",
-    "img": "images/products/下载 (17).png",
+    "img": "images/products/���� (17).png",
     "specs": [
       [
         "Type",
@@ -1628,7 +1628,7 @@ const allProducts = [
     "id": "atf-8",
     "name": "Hydraulic Transmission Oil No.8",
     "category": "transmission",
-    "img": "images/products/下载 (18).png",
+    "img": "images/products/���� (18).png",
     "specs": [
       [
         "Type",
@@ -1652,7 +1652,7 @@ const allProducts = [
     "id": "atf-dexron6",
     "name": "ATF DEXRON VI",
     "category": "transmission",
-    "img": "images/products/下载 (19).png",
+    "img": "images/products/���� (19).png",
     "specs": [
       [
         "Type",
@@ -1680,7 +1680,7 @@ const allProducts = [
     "id": "atf-teml14c",
     "name": "ATF ZF TE-ML 14C",
     "category": "transmission",
-    "img": "images/products/下载 (20).png",
+    "img": "images/products/���� (20).png",
     "specs": [
       [
         "Type",
@@ -1708,7 +1708,7 @@ const allProducts = [
     "id": "psf-psf3",
     "name": "Power Steering Fluid PSF-3",
     "category": "psf",
-    "img": "images/products/下载 (21).png",
+    "img": "images/products/���� (21).png",
     "specs": [
       [
         "Type",
@@ -1736,7 +1736,7 @@ const allProducts = [
     "id": "psf-chf11s",
     "name": "Power Steering Fluid CHF 11S",
     "category": "psf",
-    "img": "images/products/下载 (22).png",
+    "img": "images/products/���� (22).png",
     "specs": [
       [
         "Type",
@@ -1764,7 +1764,7 @@ const allProducts = [
     "id": "brake-dot3",
     "name": "Brake Fluid DOT 3",
     "category": "brake",
-    "img": "images/products/下载 (23).png",
+    "img": "images/products/���� (23).png",
     "specs": [
       [
         "Type",
@@ -1776,7 +1776,7 @@ const allProducts = [
       ],
       [
         "Dry Boiling Point",
-        "≥205°C"
+        "��205��C"
       ],
       [
         "Packing",
@@ -1792,7 +1792,7 @@ const allProducts = [
     "id": "brake-dot4",
     "name": "Brake Fluid DOT 4",
     "category": "brake",
-    "img": "images/products/下载 (24).png",
+    "img": "images/products/���� (24).png",
     "specs": [
       [
         "Type",
@@ -1804,7 +1804,7 @@ const allProducts = [
       ],
       [
         "Dry Boiling Point",
-        "≥230°C"
+        "��230��C"
       ],
       [
         "Packing",
@@ -1820,7 +1820,7 @@ const allProducts = [
     "id": "brake-dot5-1",
     "name": "Brake Fluid DOT 5.1",
     "category": "brake",
-    "img": "images/products/下载 (25).png",
+    "img": "images/products/���� (25).png",
     "specs": [
       [
         "Type",
@@ -1832,7 +1832,7 @@ const allProducts = [
       ],
       [
         "Dry Boiling Point",
-        "≥260°C"
+        "��260��C"
       ],
       [
         "Base",
@@ -1852,7 +1852,7 @@ const allProducts = [
     "id": "brake-dot5",
     "name": "Brake Fluid DOT 5 (Silicone)",
     "category": "brake",
-    "img": "images/products/下载 (26).png",
+    "img": "images/products/���� (26).png",
     "specs": [
       [
         "Type",
@@ -1864,7 +1864,7 @@ const allProducts = [
       ],
       [
         "Dry Boiling Point",
-        "≥260°C"
+        "��260��C"
       ],
       [
         "Base",
@@ -1884,7 +1884,7 @@ const allProducts = [
     "id": "coolant-g11",
     "name": "Coolant IAT (G11) Green",
     "category": "coolant",
-    "img": "images/products/下载 (27).png",
+    "img": "images/products/���� (27).png",
     "specs": [
       [
         "Type",
@@ -1916,7 +1916,7 @@ const allProducts = [
     "id": "coolant-g12",
     "name": "Coolant OAT (G12) Red",
     "category": "coolant",
-    "img": "images/products/下载 (28).png",
+    "img": "images/products/���� (28).png",
     "specs": [
       [
         "Type",
@@ -1948,7 +1948,7 @@ const allProducts = [
     "id": "coolant-poat",
     "name": "Coolant POAT Pink/Red",
     "category": "coolant",
-    "img": "images/products/下载 (29).png",
+    "img": "images/products/���� (29).png",
     "specs": [
       [
         "Type",
@@ -1980,7 +1980,7 @@ const allProducts = [
     "id": "coolant-noat",
     "name": "NOAT Extended Life Coolant",
     "category": "coolant",
-    "img": "images/products/下载 (30).png",
+    "img": "images/products/���� (30).png",
     "specs": [
       [
         "Type",
@@ -2006,9 +2006,9 @@ const allProducts = [
   },
   {
     "id": "coolant-35",
-    "name": "Universal Ready-to-Use Coolant -35°C",
+    "name": "Universal Ready-to-Use Coolant -35��C",
     "category": "coolant",
-    "img": "images/products/下载 (31).png",
+    "img": "images/products/���� (31).png",
     "specs": [
       [
         "Type",
@@ -2016,7 +2016,7 @@ const allProducts = [
       ],
       [
         "Freezing Point",
-        "-35°C"
+        "-35��C"
       ],
       [
         "Packing",
@@ -2030,9 +2030,9 @@ const allProducts = [
   },
   {
     "id": "coolant-45",
-    "name": "Universal Ready-to-Use Coolant -45°C",
+    "name": "Universal Ready-to-Use Coolant -45��C",
     "category": "coolant",
-    "img": "images/products/下载 (32).png",
+    "img": "images/products/���� (32).png",
     "specs": [
       [
         "Type",
@@ -2040,11 +2040,11 @@ const allProducts = [
       ],
       [
         "Freezing Point",
-        "-45°C"
+        "-45��C"
       ],
       [
         "Boiling Point",
-        "+125°C"
+        "+125��C"
       ],
       [
         "Standard",
@@ -2064,7 +2064,7 @@ const allProducts = [
     "id": "grease-calcium",
     "name": "Complex Calcium Sulfonate Grease NLGI 2",
     "category": "grease",
-    "img": "images/products/微信图片_20260525194136_78_328.png",
+    "img": "images/products/΢��ͼƬ_20260525194136_78_328.png",
     "specs": [
       [
         "Type",
@@ -2092,7 +2092,7 @@ const allProducts = [
     "id": "grease-polyurea",
     "name": "Polyurea Grease",
     "category": "grease",
-    "img": "images/products/微信图片_20260525194301_79_328.png",
+    "img": "images/products/΢��ͼƬ_20260525194301_79_328.png",
     "specs": [
       [
         "Type",
@@ -2116,7 +2116,7 @@ const allProducts = [
     "id": "grease-bentonite",
     "name": "Bentonite Grease NLGI 2",
     "category": "grease",
-    "img": "images/products/微信图片_20260525194411_80_328.png",
+    "img": "images/products/΢��ͼƬ_20260525194411_80_328.png",
     "specs": [
       [
         "Type",
@@ -2140,7 +2140,7 @@ const allProducts = [
     "id": "grease-aluminum",
     "name": "Aluminum Complex Grease",
     "category": "grease",
-    "img": "images/products/微信图片_20260525194546_81_328.png",
+    "img": "images/products/΢��ͼƬ_20260525194546_81_328.png",
     "specs": [
       [
         "Type",
@@ -2475,121 +2475,121 @@ const translations = {
         'about.f6t': '24/7 Support', 'about.f6d': 'WhatsApp, Email, WeChat multilingual support',
     },
     zh: {
-        'topbar.cert': '资质证书', 'nav.home': '首页', 'nav.about': '关于我们', 'nav.products': '产品中心',
-        'products.all': '全部产品', 'products.gasoline': '汽油发动机油', 'products.diesel': '柴油发动机油',
-        'products.transmission': '变速箱油',
-        'products.hydraulic': '液压油', 'products.gear': '齿轮油', 'products.grease': '润滑脂',
-        'products.psf': '转向助力油', 'products.brake': '刹车油', 'products.coolant': '防冻液',
-        'products.title': '产品中心', 'products.categories': '产品分类',
-        'nav.news': '新闻动态', 'nav.contact': '联系我们', 'nav.faq': '常见问题',
-        'footer.contact': '联系我们', 'footer.nav': '网站导航',
-        'footer.copyright': '&copy; 2007-2026 山东铂尔加石油化工科技有限公司 版权所有。',
-        'footer.inquiry': '快速询价',
-        'footer.wechat': '微信: +86 13731735051',
-        'banner.h1': '优质润滑油 供应全球市场',
-        'banner.sub': '15年以上行业经验 | OEM/ODM定制 | 全球发货',
-        'banner.cta1': '<i class="fas fa-file-invoice"></i> 免费获取报价',
-        'banner.cta2': '<i class="fas fa-box"></i> 浏览产品',
-        'inquiry.submit': '发送询价', 'inquiry.addToList': '加入询价单',
-        'inquiry.list': '询价单', 'inquiry.sendWhatsApp': '通过 WhatsApp 发送询价',
-        'inquiry.empty': '未选择产品', 'inquiry.selectFirst': '请先选择产品。',
-        'inquiry.thankYou': '感谢！正在跳转到 WhatsApp...',
-        'inquire.now': '立即询价', 'inquire.viaWhatsApp': '通过 WhatsApp 立即询价',
-        'inquire.detailNote': '如需详细规格和报价，请直接联系我们。',
-        'search.placeholder': '搜索产品...', 'search.noResult': '未找到产品。',
-        'pagination.next': '下一页',
-        'sidebar.attribute': '属性', 'sidebar.service': '服务：', 'sidebar.moq': '起订量：',
-        'sidebar.spec': '规格：', 'sidebar.leadtime': '交期：', 'sidebar.days': '7-15 天',
-        'sidebar.tags': '标签',
-        'contact.title': '联系我们', 'contact.desc': '准备下单或需要定制润滑方案？请立即联系我们的团队，工作时间内2小时内回复。',
-        'contact.address_label': '地址', 'contact.address': '中国山东省东营市',
-        'contact.wechat': '+86 13731735051', 'contact.hours_label': '营业时间',
-        'contact.hours': '周一至周六：8:00 - 18:00 (UTC+8)',
-        'contact.form_title': '给我们留言', 'contact.name': '姓名', 'contact.phone': '电话/WhatsApp',
-        'contact.company': '公司名称', 'contact.product': '感兴趣的产品', 'contact.select': '-- 选择分类 --',
-        'contact.message': '留言内容', 'contact.submit': '<i class="fas fa-paper-plane"></i> 发送留言',
-        'faq.title': '常见问题',
-        'faq.q1': '你们的最低起订量（MOQ）是多少？',
-        'faq.a1': '标准MOQ为散装500升或包装产品200瓶。试订单可接受较小数量，详情请联系我们。',
-        'faq.q2': '你们提供OEM/ODM服务吗？',
-        'faq.a2': '是的！我们提供全套OEM/ODM服务，包括定制配方、贴牌生产、包装设计和品牌专属质量标准。研发团队可根据市场需求开发配方。',
-        'faq.q3': '你们的产品有哪些认证？',
-        'faq.a3': '产品通过API、ILSAC、ISO等国际标准认证，持有ISO 9001:2015质量管理体系认证。所有产品在实验室经过严格检测。',
-        'faq.q4': '交货需要多长时间？',
-        'faq.a4': '标准生产交期为订单确认后7-15个工作日。海运时间取决于目的地：东南亚约15-25天，中东/非洲约25-35天，南美约35-45天。',
-        'faq.q5': '你们接受哪些付款方式？',
-        'faq.a5': '接受T/T电汇、信用证L/C和西联汇款。新客户通常30%定金+发货前70%尾款。长期合作可商议灵活条款。',
-        'faq.q6': '可以免费获取样品吗？',
-        'faq.a6': '是的，我们为意向客户提供免费样品（每款产品最多1升），样品运费通常由买家承担。请联系我们安排样品发送。',
-        'blog.post1.title': 'API SP与ILSAC GF-6标准解读',
-        'blog.post2.title': '如何为设备选择合适的液压油',
-        'blog.post3.title': '2026年东南亚润滑油市场展望',
-        'about.title': '关于博尔佳',
-        'about.desc1': '山东铂尔加石油化工科技有限公司成立于2007年，是一家集研发、生产、销售于一体的专业润滑油制造商。拥有15年以上行业经验，主营发动机油、液压油、齿轮油、刹车油、润滑脂及船用油等产品。',
-        'about.desc2': '产品符合API、ILSAC、ISO等国际标准，已出口至东南亚、中东、非洲、南美洲等30多个国家和地区。提供全套OEM/ODM服务，灵活MOQ，快速交货。',
-        'about.stat1': '年行业经验', 'about.stat2': '产品种类', 'about.stat3': '出口国家', 'about.stat4': '合作客户',
-        'about.f1t': '研发实力', 'about.f1d': '专业实验室，先进检测设备',
-        'about.f2t': '现代化工厂', 'about.f2d': '自动化生产线，严格质量控制',
-        'about.f3t': '认证品质', 'about.f3d': 'API、ISO、ILSAC国际认证',
-        'about.f4t': '全球发货', 'about.f4d': '可靠物流，覆盖30+国家',
-        'about.f5t': 'OEM/ODM服务', 'about.f5d': '定制配方、标签和包装',
-        'about.f6t': '全天候支持', 'about.f6d': 'WhatsApp、Email、微信多语种客服',
+        'topbar.cert': '����֤��', 'nav.home': '��ҳ', 'nav.about': '��������', 'nav.products': '��Ʒ����',
+        'products.all': 'ȫ����Ʒ', 'products.gasoline': '���ͷ�������', 'products.diesel': '���ͷ�������',
+        'products.transmission': '��������',
+        'products.hydraulic': 'Һѹ��', 'products.gear': '������', 'products.grease': '��֬',
+        'products.psf': 'ת��������', 'products.brake': 'ɲ����', 'products.coolant': '����Һ',
+        'products.title': '��Ʒ����', 'products.categories': '��Ʒ����',
+        'nav.news': '���Ŷ�̬', 'nav.contact': '��ϵ����', 'nav.faq': '��������',
+        'footer.contact': '��ϵ����', 'footer.nav': '��վ����',
+        'footer.copyright': '&copy; 2007-2026 ɽ��������ʯ�ͻ����Ƽ����޹�˾ ��Ȩ���С�',
+        'footer.inquiry': '����ѯ��',
+        'footer.wechat': '΢��: +86 13731735051',
+        'banner.h1': '�������� ��Ӧȫ���г�',
+        'banner.sub': '15��������ҵ���� | OEM/ODM���� | ȫ�򷢻�',
+        'banner.cta1': '<i class="fas fa-file-invoice"></i> ��ѻ�ȡ����',
+        'banner.cta2': '<i class="fas fa-box"></i> �����Ʒ',
+        'inquiry.submit': '����ѯ��', 'inquiry.addToList': '����ѯ�۵�',
+        'inquiry.list': 'ѯ�۵�', 'inquiry.sendWhatsApp': 'ͨ�� WhatsApp ����ѯ��',
+        'inquiry.empty': 'δѡ���Ʒ', 'inquiry.selectFirst': '����ѡ���Ʒ��',
+        'inquiry.thankYou': '��л��������ת�� WhatsApp...',
+        'inquire.now': '����ѯ��', 'inquire.viaWhatsApp': 'ͨ�� WhatsApp ����ѯ��',
+        'inquire.detailNote': '������ϸ���ͱ��ۣ���ֱ����ϵ���ǡ�',
+        'search.placeholder': '������Ʒ...', 'search.noResult': 'δ�ҵ���Ʒ��',
+        'pagination.next': '��һҳ',
+        'sidebar.attribute': '����', 'sidebar.service': '����', 'sidebar.moq': '������',
+        'sidebar.spec': '���', 'sidebar.leadtime': '���ڣ�', 'sidebar.days': '7-15 ��',
+        'sidebar.tags': '��ǩ',
+        'contact.title': '��ϵ����', 'contact.desc': '׼���µ�����Ҫ�����󻬷�������������ϵ���ǵ��Ŷӣ�����ʱ����2Сʱ�ڻظ���',
+        'contact.address_label': '��ַ', 'contact.address': '�й�ɽ��ʡ��Ӫ��',
+        'contact.wechat': '+86 13731735051', 'contact.hours_label': 'Ӫҵʱ��',
+        'contact.hours': '��һ��������8:00 - 18:00 (UTC+8)',
+        'contact.form_title': '����������', 'contact.name': '����', 'contact.phone': '�绰/WhatsApp',
+        'contact.company': '��˾����', 'contact.product': '����Ȥ�Ĳ�Ʒ', 'contact.select': '-- ѡ����� --',
+        'contact.message': '��������', 'contact.submit': '<i class="fas fa-paper-plane"></i> ��������',
+        'faq.title': '��������',
+        'faq.q1': '���ǵ����������MOQ���Ƕ��٣�',
+        'faq.a1': '��׼MOQΪɢװ500�����װ��Ʒ200ƿ���Զ����ɽ��ܽ�С��������������ϵ���ǡ�',
+        'faq.q2': '�����ṩOEM/ODM������',
+        'faq.a2': '�ǵģ������ṩȫ��OEM/ODM���񣬰��������䷽��������������װ��ƺ�Ʒ��ר��������׼���з��Ŷӿɸ����г����󿪷��䷽��',
+        'faq.q3': '���ǵĲ�Ʒ����Щ��֤��',
+        'faq.a3': '��Ʒͨ��API��ILSAC��ISO�ȹ��ʱ�׼��֤������ISO 9001:2015����������ϵ��֤�����в�Ʒ��ʵ���Ҿ����ϸ��⡣',
+        'faq.q4': '������Ҫ�೤ʱ�䣿',
+        'faq.a4': '��׼��������Ϊ����ȷ�Ϻ�7-15�������ա�����ʱ��ȡ����Ŀ�ĵأ�������Լ15-25�죬�ж�/����Լ25-35�죬����Լ35-45�졣',
+        'faq.q5': '���ǽ�����Щ���ʽ��',
+        'faq.a5': '����T/T��㡢����֤L/C���������¿ͻ�ͨ��30%����+����ǰ70%β����ں���������������',
+        'faq.q6': '������ѻ�ȡ��Ʒ��',
+        'faq.a6': '�ǵģ�����Ϊ����ͻ��ṩ�����Ʒ��ÿ���Ʒ���1��������Ʒ�˷�ͨ������ҳе�������ϵ���ǰ�����Ʒ���͡�',
+        'blog.post1.title': 'API SP��ILSAC GF-6��׼���',
+        'blog.post2.title': '���Ϊ�豸ѡ����ʵ�Һѹ��',
+        'blog.post3.title': '2026�궫���������г�չ��',
+        'about.title': '���ڲ�����',
+        'about.desc1': 'ɽ��������ʯ�ͻ����Ƽ����޹�˾������2007�꣬��һ�Ҽ��з���������������һ���רҵ���������̡�ӵ��15��������ҵ���飬��Ӫ�������͡�Һѹ�͡������͡�ɲ���͡���֬�������͵Ȳ�Ʒ��',
+        'about.desc2': '��Ʒ����API��ILSAC��ISO�ȹ��ʱ�׼���ѳ����������ǡ��ж������ޡ������޵�30������Һ͵������ṩȫ��OEM/ODM�������MOQ�����ٽ�����',
+        'about.stat1': '����ҵ����', 'about.stat2': '��Ʒ����', 'about.stat3': '���ڹ���', 'about.stat4': '�����ͻ�',
+        'about.f1t': '�з�ʵ��', 'about.f1d': 'רҵʵ���ң��Ƚ�����豸',
+        'about.f2t': '�ִ�������', 'about.f2d': '�Զ��������ߣ��ϸ���������',
+        'about.f3t': '��֤Ʒ��', 'about.f3d': 'API��ISO��ILSAC������֤',
+        'about.f4t': 'ȫ�򷢻�', 'about.f4d': '�ɿ�����������30+����',
+        'about.f5t': 'OEM/ODM����', 'about.f5d': '�����䷽����ǩ�Ͱ�װ',
+        'about.f6t': 'ȫ���֧��', 'about.f6d': 'WhatsApp��Email��΢�Ŷ����ֿͷ�',
     },
     vi: {
-        'topbar.cert': 'Chứng nhận', 'nav.home': 'Trang chủ', 'nav.about': 'Giới thiệu', 'nav.products': 'Sản phẩm',
-        'products.all': 'Tất cả', 'products.gasoline': 'Dầu động cơ', 'products.diesel': 'Dầu động cơ diesel',
-        'products.transmission': 'Dầu hộp số',
-        'products.hydraulic': 'Dầu thủy lực', 'products.gear': 'Dầu bánh răng', 'products.grease': 'Mỡ bôi trơn',
-        'products.psf': 'Dầu trợ lực lái', 'products.brake': 'Dầu phanh', 'products.coolant': 'Nước làm mát',
-        'products.title': 'Sản phẩm', 'products.categories': 'Danh mục',
-        'nav.news': 'Tin tức', 'nav.contact': 'Liên hệ', 'nav.faq': 'FAQ',
-        'footer.contact': 'Liên hệ', 'footer.nav': 'Điều hướng',
+        'topbar.cert': 'Ch?ng nh?n', 'nav.home': 'Trang ch?', 'nav.about': 'Gi?i thi?u', 'nav.products': 'S?n ph?m',
+        'products.all': 'T?t c?', 'products.gasoline': 'D?u ??ng c?', 'products.diesel': 'D?u ??ng c? diesel',
+        'products.transmission': 'D?u h?p s?',
+        'products.hydraulic': 'D?u th?y l?c', 'products.gear': 'D?u b��nh r?ng', 'products.grease': 'M? b?i tr?n',
+        'products.psf': 'D?u tr? l?c l��i', 'products.brake': 'D?u phanh', 'products.coolant': 'N??c l��m m��t',
+        'products.title': 'S?n ph?m', 'products.categories': 'Danh m?c',
+        'nav.news': 'Tin t?c', 'nav.contact': 'Li��n h?', 'nav.faq': 'FAQ',
+        'footer.contact': 'Li��n h?', 'footer.nav': '?i?u h??ng',
         'footer.copyright': '&copy; 2007-2026 SHANDONG BOERJIA PETROCHEMICAL TECHNOLOGY CO., LTD.',
-        'footer.inquiry': 'Yêu cầu nhanh',
+        'footer.inquiry': 'Y��u c?u nhanh',
         'footer.wechat': 'WeChat: +86 13731735051',
-        'banner.h1': 'Dầu bôi trơn cao cấp cho thị trường toàn cầu',
-        'banner.sub': '15+ năm kinh nghiệm | OEM/ODM | Giao hàng toàn thế giới',
-        'banner.cta1': '<i class="fas fa-file-invoice"></i> Nhận báo giá miễn phí',
-        'banner.cta2': '<i class="fas fa-box"></i> Xem sản phẩm',
-        'inquiry.submit': 'Gửi yêu cầu', 'inquiry.addToList': 'Thêm vào danh sách',
-        'inquiry.list': 'Danh sách yêu cầu', 'inquiry.sendWhatsApp': 'Gửi qua WhatsApp',
-        'inquiry.empty': 'Chưa chọn sản phẩm', 'inquiry.selectFirst': 'Vui lòng chọn sản phẩm trước.',
-        'inquiry.thankYou': 'Cảm ơn! Đang chuyển đến WhatsApp...',
-        'inquire.now': 'Yêu cầu ngay', 'inquire.viaWhatsApp': 'Yêu cầu qua WhatsApp',
-        'inquire.detailNote': 'Vui lòng liên hệ trực tiếp để biết chi tiết và báo giá.',
-        'search.placeholder': 'Tìm kiếm sản phẩm...', 'search.noResult': 'Không tìm thấy sản phẩm.',
-        'pagination.next': 'Tiếp',
-        'sidebar.attribute': 'Thuộc tính', 'sidebar.service': 'Dịch vụ：', 'sidebar.moq': 'MOQ：',
-        'sidebar.spec': 'Tiêu chuẩn：', 'sidebar.leadtime': 'Thời gian：', 'sidebar.days': '7-15 ngày',
-        'sidebar.tags': 'Thẻ',
-        'contact.title': 'Liên hệ', 'contact.desc': 'Sẵn sàng đặt hàng hoặc cần giải pháp dầu nhớt tùy chỉnh? Hãy liên hệ với chúng tôi. Phản hồi trong vòng 2 giờ giờ làm việc.',
-        'contact.address_label': 'Địa chỉ', 'contact.address': 'Thành phố Đông Doanh, tỉnh Sơn Đông, Trung Quốc',
-        'contact.wechat': '+86 13731735051', 'contact.hours_label': 'Giờ làm việc',
-        'contact.hours': 'Thứ 2 - Thứ 7: 8:00 - 18:00 (UTC+8)',
-        'contact.form_title': 'Gửi tin nhắn', 'contact.name': 'Tên', 'contact.phone': 'Điện thoại/WhatsApp',
-        'contact.company': 'Công ty', 'contact.product': 'Sản phẩm quan tâm', 'contact.select': '-- Chọn danh mục --',
-        'contact.message': 'Tin nhắn', 'contact.submit': '<i class="fas fa-paper-plane"></i> Gửi tin nhắn',
-        'faq.title': 'Câu hỏi thường gặp',
-        'faq.q1': 'Số lượng đặt hàng tối thiểu (MOQ) là bao nhiêu?',
-        'faq.a1': 'MOQ tiêu chuẩn là 500 lít cho hàng rời hoặc 200 chai cho hàng đóng gói. Đơn hàng thử có thể chấp nhận số lượng nhỏ hơn.',
-        'faq.q2': 'Bạn có cung cấp dịch vụ OEM/ODM không?',
-        'faq.a2': 'Có! Chúng tôi cung cấp đầy đủ dịch vụ OEM/ODM bao gồm công thức tùy chỉnh, dán nhãn riêng, thiết kế bao bì và tiêu chuẩn chất lượng theo thương hiệu.',
-        'faq.q3': 'Sản phẩm của bạn có chứng nhận gì?',
-        'faq.a3': 'Sản phẩm đạt chứng nhận API, ILSAC, ISO và các tiêu chuẩn quốc tế khác. Chúng tôi có chứng nhận ISO 9001:2015.',
-        'faq.q4': 'Thời gian giao hàng mất bao lâu?',
-        'faq.a4': 'Thời gian sản xuất tiêu chuẩn là 7-15 ngày làm việc. Thời gian vận chuyển: Đông Nam Á 15-25 ngày, Trung Đông/Châu Phi 25-35 ngày, Nam Mỹ 35-45 ngày.',
-        'faq.q5': 'Bạn chấp nhận phương thức thanh toán nào?',
-        'faq.a5': 'Chấp nhận T/T, L/C và Western Union. Khách hàng mới: 30% tiền cọc + 70% trước khi giao hàng.',
-        'faq.q6': 'Tôi có thể nhận mẫu miễn phí không?',
-        'faq.a6': 'Có, chúng tôi cung cấp mẫu miễn phí (tối đa 1L/sản phẩm) cho khách hàng nghiêm túc. Phí vận chuyển mẫu do người mua chịu.',
-        'about.title': 'Về BOERJIA', 'about.desc1': 'Shandong Boerjia Petrochemical, thành lập năm 2007, chuyên sản xuất dầu bôi trơn với hơn 15 năm kinh nghiệm. Sản phẩm đạt tiêu chuẩn API, ILSAC, ISO.', 'about.desc2': 'Xuất khẩu sang 30+ quốc gia. Dịch vụ OEM/ODM toàn diện, MOQ linh hoạt, giao hàng nhanh chóng.',
-        'about.stat1': 'Năm KN', 'about.stat2': 'Sản phẩm', 'about.stat3': 'Quốc gia', 'about.stat4': 'Khách hàng',
-        'about.f1t': 'Nghiên cứu', 'about.f1d': 'Phòng lab chuyên nghiệp', 'about.f2t': 'Nhà máy hiện đại', 'about.f2d': 'Dây chuyền tự động',
-        'about.f3t': 'Chất lượng', 'about.f3d': 'Chứng nhận API, ISO', 'about.f4t': 'Giao hàng toàn cầu', 'about.f4d': '30+ quốc gia',
-        'about.f5t': 'OEM/ODM', 'about.f5d': 'Tùy chỉnh công thức', 'about.f6t': 'Hỗ trợ 24/7', 'about.f6d': 'WhatsApp, Email, WeChat',
-        'blog.post1.title': 'Tìm hiểu tiêu chuẩn API SP và ILSAC GF-6',
-        'blog.post2.title': 'Cách chọn dầu thủy lực phù hợp',
-        'blog.post3.title': 'Triển vọng thị trường dầu bôi trơn Đông Nam Á 2026',
+        'banner.h1': 'D?u b?i tr?n cao c?p cho th? tr??ng to��n c?u',
+        'banner.sub': '15+ n?m kinh nghi?m | OEM/ODM | Giao h��ng to��n th? gi?i',
+        'banner.cta1': '<i class="fas fa-file-invoice"></i> Nh?n b��o gi�� mi?n ph��',
+        'banner.cta2': '<i class="fas fa-box"></i> Xem s?n ph?m',
+        'inquiry.submit': 'G?i y��u c?u', 'inquiry.addToList': 'Th��m v��o danh s��ch',
+        'inquiry.list': 'Danh s��ch y��u c?u', 'inquiry.sendWhatsApp': 'G?i qua WhatsApp',
+        'inquiry.empty': 'Ch?a ch?n s?n ph?m', 'inquiry.selectFirst': 'Vui l��ng ch?n s?n ph?m tr??c.',
+        'inquiry.thankYou': 'C?m ?n! ?ang chuy?n ??n WhatsApp...',
+        'inquire.now': 'Y��u c?u ngay', 'inquire.viaWhatsApp': 'Y��u c?u qua WhatsApp',
+        'inquire.detailNote': 'Vui l��ng li��n h? tr?c ti?p ?? bi?t chi ti?t v�� b��o gi��.',
+        'search.placeholder': 'T��m ki?m s?n ph?m...', 'search.noResult': 'Kh?ng t��m th?y s?n ph?m.',
+        'pagination.next': 'Ti?p',
+        'sidebar.attribute': 'Thu?c t��nh', 'sidebar.service': 'D?ch v?��', 'sidebar.moq': 'MOQ��',
+        'sidebar.spec': 'Ti��u chu?n��', 'sidebar.leadtime': 'Th?i gian��', 'sidebar.days': '7-15 ng��y',
+        'sidebar.tags': 'Th?',
+        'contact.title': 'Li��n h?', 'contact.desc': 'S?n s��ng ??t h��ng ho?c c?n gi?i ph��p d?u nh?t t��y ch?nh? H?y li��n h? v?i ch��ng t?i. Ph?n h?i trong v��ng 2 gi? gi? l��m vi?c.',
+        'contact.address_label': '??a ch?', 'contact.address': 'Th��nh ph? ??ng Doanh, t?nh S?n ??ng, Trung Qu?c',
+        'contact.wechat': '+86 13731735051', 'contact.hours_label': 'Gi? l��m vi?c',
+        'contact.hours': 'Th? 2 - Th? 7: 8:00 - 18:00 (UTC+8)',
+        'contact.form_title': 'G?i tin nh?n', 'contact.name': 'T��n', 'contact.phone': '?i?n tho?i/WhatsApp',
+        'contact.company': 'C?ng ty', 'contact.product': 'S?n ph?m quan tam', 'contact.select': '-- Ch?n danh m?c --',
+        'contact.message': 'Tin nh?n', 'contact.submit': '<i class="fas fa-paper-plane"></i> G?i tin nh?n',
+        'faq.title': 'Cau h?i th??ng g?p',
+        'faq.q1': 'S? l??ng ??t h��ng t?i thi?u (MOQ) l�� bao nhi��u?',
+        'faq.a1': 'MOQ ti��u chu?n l�� 500 l��t cho h��ng r?i ho?c 200 chai cho h��ng ?��ng g��i. ??n h��ng th? c�� th? ch?p nh?n s? l??ng nh? h?n.',
+        'faq.q2': 'B?n c�� cung c?p d?ch v? OEM/ODM kh?ng?',
+        'faq.a2': 'C��! Ch��ng t?i cung c?p ??y ?? d?ch v? OEM/ODM bao g?m c?ng th?c t��y ch?nh, d��n nh?n ri��ng, thi?t k? bao b�� v�� ti��u chu?n ch?t l??ng theo th??ng hi?u.',
+        'faq.q3': 'S?n ph?m c?a b?n c�� ch?ng nh?n g��?',
+        'faq.a3': 'S?n ph?m ??t ch?ng nh?n API, ILSAC, ISO v�� c��c ti��u chu?n qu?c t? kh��c. Ch��ng t?i c�� ch?ng nh?n ISO 9001:2015.',
+        'faq.q4': 'Th?i gian giao h��ng m?t bao lau?',
+        'faq.a4': 'Th?i gian s?n xu?t ti��u chu?n l�� 7-15 ng��y l��m vi?c. Th?i gian v?n chuy?n: ??ng Nam �� 15-25 ng��y, Trung ??ng/Chau Phi 25-35 ng��y, Nam M? 35-45 ng��y.',
+        'faq.q5': 'B?n ch?p nh?n ph??ng th?c thanh to��n n��o?',
+        'faq.a5': 'Ch?p nh?n T/T, L/C v�� Western Union. Kh��ch h��ng m?i: 30% ti?n c?c + 70% tr??c khi giao h��ng.',
+        'faq.q6': 'T?i c�� th? nh?n m?u mi?n ph�� kh?ng?',
+        'faq.a6': 'C��, ch��ng t?i cung c?p m?u mi?n ph�� (t?i ?a 1L/s?n ph?m) cho kh��ch h��ng nghi��m t��c. Ph�� v?n chuy?n m?u do ng??i mua ch?u.',
+        'about.title': 'V? BOERJIA', 'about.desc1': 'Shandong Boerjia Petrochemical, th��nh l?p n?m 2007, chuy��n s?n xu?t d?u b?i tr?n v?i h?n 15 n?m kinh nghi?m. S?n ph?m ??t ti��u chu?n API, ILSAC, ISO.', 'about.desc2': 'Xu?t kh?u sang 30+ qu?c gia. D?ch v? OEM/ODM to��n di?n, MOQ linh ho?t, giao h��ng nhanh ch��ng.',
+        'about.stat1': 'N?m KN', 'about.stat2': 'S?n ph?m', 'about.stat3': 'Qu?c gia', 'about.stat4': 'Kh��ch h��ng',
+        'about.f1t': 'Nghi��n c?u', 'about.f1d': 'Ph��ng lab chuy��n nghi?p', 'about.f2t': 'Nh�� m��y hi?n ??i', 'about.f2d': 'Day chuy?n t? ??ng',
+        'about.f3t': 'Ch?t l??ng', 'about.f3d': 'Ch?ng nh?n API, ISO', 'about.f4t': 'Giao h��ng to��n c?u', 'about.f4d': '30+ qu?c gia',
+        'about.f5t': 'OEM/ODM', 'about.f5d': 'T��y ch?nh c?ng th?c', 'about.f6t': 'H? tr? 24/7', 'about.f6d': 'WhatsApp, Email, WeChat',
+        'blog.post1.title': 'T��m hi?u ti��u chu?n API SP v�� ILSAC GF-6',
+        'blog.post2.title': 'C��ch ch?n d?u th?y l?c ph�� h?p',
+        'blog.post3.title': 'Tri?n v?ng th? tr??ng d?u b?i tr?n ??ng Nam �� 2026',
     },
     id: {
         'topbar.cert': 'Sertifikat', 'nav.home': 'Beranda', 'nav.about': 'Tentang kami', 'nav.products': 'Produk',
@@ -2617,8 +2617,8 @@ const translations = {
         'inquire.detailNote': 'Hubungi kami langsung untuk spesifikasi dan penawaran.',
         'search.placeholder': 'Cari produk...', 'search.noResult': 'Produk tidak ditemukan.',
         'pagination.next': 'Selanjutnya',
-        'sidebar.attribute': 'Atribut', 'sidebar.service': 'Layanan：', 'sidebar.moq': 'MOQ：',
-        'sidebar.spec': 'Spesifikasi：', 'sidebar.leadtime': 'Waktu pengiriman：', 'sidebar.days': '7-15 Hari',
+        'sidebar.attribute': 'Atribut', 'sidebar.service': 'Layanan��', 'sidebar.moq': 'MOQ��',
+        'sidebar.spec': 'Spesifikasi��', 'sidebar.leadtime': 'Waktu pengiriman��', 'sidebar.days': '7-15 Hari',
         'sidebar.tags': 'Tag',
         'contact.title': 'Hubungi Kami', 'contact.desc': 'Siap memesan atau butuh solusi pelumas kustom? Hubungi tim kami. Respons dalam 2 jam jam kerja.',
         'contact.address_label': 'Alamat', 'contact.address': 'Kota Dongying, Provinsi Shandong, China',
@@ -2643,53 +2643,53 @@ const translations = {
         'blog.post3.title': 'Prospek Pasar Pelumas Asia Tenggara 2026',
     },
     th: {
-        'topbar.cert': 'ใบรับรอง', 'nav.home': 'หน้าแรก', 'nav.about': 'เกี่ยวกับเรา', 'nav.products': 'สินค้า',
-        'products.all': 'สินค้าทั้งหมด', 'products.gasoline': 'น้ำมันเครื่อง', 'products.diesel': 'น้ำมันเครื่องดีเซล',
-        'products.transmission': 'น้ำมันเกียร์อัตโนมัติ',
-        'products.hydraulic': 'น้ำมันไฮดรอลิก', 'products.gear': 'น้ำมันเกียร์', 'products.grease': 'จาระบี',
-        'products.psf': 'น้ำมันพวงมาลัยพาวเวอร์', 'products.brake': 'น้ำมันเบรก', 'products.coolant': 'น้ำยาหล่อเย็น',
-        'products.title': 'สินค้าของเรา', 'products.categories': 'หมวดหมู่สินค้า',
-        'nav.news': 'ข่าว', 'nav.contact': 'ติดต่อ', 'nav.faq': 'FAQ',
-        'footer.contact': 'ติดต่อเรา', 'footer.nav': 'เมนู',
+        'topbar.cert': '????????', 'nav.home': '???????', 'nav.about': '????????????', 'nav.products': '??????',
+        'products.all': '?????????????', 'products.gasoline': '?????????????', 'products.diesel': '??????????????????',
+        'products.transmission': '?????????????????????',
+        'products.hydraulic': '??????????????', 'products.gear': '????????????', 'products.grease': '??????',
+        'products.psf': '??????????????????????', 'products.brake': '??????????', 'products.coolant': '?????????????',
+        'products.title': '????????????', 'products.categories': '??????????????',
+        'nav.news': '????', 'nav.contact': '??????', 'nav.faq': 'FAQ',
+        'footer.contact': '?????????', 'footer.nav': '????',
         'footer.copyright': '&copy; 2007-2026 SHANDONG BOERJIA PETROCHEMICAL TECHNOLOGY CO., LTD.',
-        'footer.inquiry': 'สอบถามด่วน',
+        'footer.inquiry': '??????????',
         'footer.wechat': 'WeChat: +86 13731735051',
-        'banner.h1': 'น้ำมันหล่อลื่นพรีเมียมสำหรับตลาดโลก',
-        'banner.sub': '15+ ปีประสบการณ์ | OEM/ODM | จัดส่งทั่วโลก',
-        'banner.cta1': '<i class="fas fa-file-invoice"></i> รับใบเสนอราคาฟรี',
-        'banner.cta2': '<i class="fas fa-box"></i> ดูสินค้า',
-        'inquiry.submit': 'ส่งคำถาม', 'inquiry.addToList': 'เพิ่มในรายการ',
-        'inquiry.list': 'รายการสอบถาม', 'inquiry.sendWhatsApp': 'ส่งผ่าน WhatsApp',
-        'inquiry.empty': 'ยังไม่ได้เลือกสินค้า', 'inquiry.selectFirst': 'กรุณาเลือกสินค้าก่อน',
-        'inquiry.thankYou': 'ขอบคุณ! กำลังเปิด WhatsApp...',
-        'inquire.now': 'สอบถามเลย', 'inquire.viaWhatsApp': 'สอบถามผ่าน WhatsApp',
-        'inquire.detailNote': 'ติดต่อเราโดยตรงเพื่อข้อมูลและราคา',
-        'search.placeholder': 'ค้นหาสินค้า...', 'search.noResult': 'ไม่พบสินค้า',
-        'pagination.next': 'ถัดไป',
-        'sidebar.attribute': 'ข้อมูล', 'sidebar.service': 'บริการ：', 'sidebar.moq': 'MOQ：',
-        'sidebar.spec': 'มาตรฐาน：', 'sidebar.leadtime': 'ระยะเวลา：', 'sidebar.days': '7-15 วัน',
-        'sidebar.tags': 'แท็ก',
-        'contact.title': 'ติดต่อเรา', 'contact.desc': 'พร้อมสั่งซื้อหรือต้องการน้ำมันหล่อลื่นแบบกำหนดเอง? ติดต่อเราวันนี้ ตอบกลับภายใน 2 ชม.',
-        'contact.address_label': 'ที่อยู่', 'contact.address': 'เมืองตงอิง มณฑลซันตง ประเทศจีน',
-        'contact.hours_label': 'เวลาทำการ', 'contact.hours': 'จันทร์ - เสาร์: 8:00 - 18:00 (UTC+8)',
-        'contact.form_title': 'ส่งข้อความ', 'contact.name': 'ชื่อ', 'contact.phone': 'โทร/WhatsApp',
-        'contact.company': 'บริษัท', 'contact.product': 'สินค้าที่สนใจ', 'contact.select': '-- เลือกหมวด --',
-        'contact.message': 'ข้อความ', 'contact.submit': '<i class="fas fa-paper-plane"></i> ส่งข้อความ',
-        'faq.title': 'คำถามที่พบบ่อย',
-        'faq.q1': 'จำนวนสั่งขั้นต่ำ (MOQ) เท่าไหร่?', 'faq.a1': 'MOQ มาตรฐาน 500 ลิตร (ของเหลว) หรือ 200 ขวด (บรรจุภัณฑ์)',
-        'faq.q2': 'มีบริการ OEM/ODM ไหม?', 'faq.a2': 'ใช่! มีบริการครบวงจร รวมสูตรกำหนดเองและออกแบบบรรจุภัณฑ์',
-        'faq.q3': 'สินค้ามีใบรับรองอะไรบ้าง?', 'faq.a3': 'ผลิตภัณฑ์ได้รับการรับรอง API, ILSAC, ISO',
-        'faq.q4': 'จัดส่งนานแค่ไหน?', 'faq.a4': '7-15 วันทำการ ส่งทางเรือ อาเซียน 15-25 วัน',
-        'faq.q5': 'รับชำระแบบไหน?', 'faq.a5': 'T/T, L/C, Western Union. ลูกค้าใหม่ 30% มัดจำ + 70% ก่อนจัดส่ง',
-        'faq.q6': 'ขอตัวอย่างฟรีได้ไหม?', 'faq.a6': 'ได้ ตัวอย่างฟรีสูงสุด 1L/สินค้า',
-        'about.title': 'เกี่ยวกับ BOERJIA', 'about.desc1': 'Shandong Boerjia ก่อตั้งในปี 2007 ผู้ผลิตน้ำมันหล่อลื่นมืออาชีพด้วยประสบการณ์กว่า 15 ปี ผลิตภัณฑ์ได้รับมาตรฐาน API, ILSAC, ISO', 'about.desc2': 'ส่งออกไปกว่า 30 ประเทศ บริการ OEM/ODM ครบวงจร MOQ ยืดหยุ่น จัดส่งรวดเร็ว',
-        'about.stat1': 'ปีประสบการณ์', 'about.stat2': 'ผลิตภัณฑ์', 'about.stat3': 'ประเทศ', 'about.stat4': 'ลูกค้า',
-        'about.f1t': 'R&D', 'about.f1d': 'ห้องปฏิบัติการมืออาชีพ', 'about.f2t': 'โรงงานทันสมัย', 'about.f2d': 'สายการผลิตอัตโนมัติ',
-        'about.f3t': 'คุณภาพ', 'about.f3d': 'มาตรฐาน API, ISO', 'about.f4t': 'จัดส่งทั่วโลก', 'about.f4d': '30+ ประเทศ',
-        'about.f5t': 'OEM/ODM', 'about.f5d': 'สูตรตามสั่ง', 'about.f6t': 'สนับสนุน 24/7', 'about.f6d': 'WhatsApp, Email, WeChat',
-        'blog.post1.title': 'ทำความเข้าใจมาตรฐาน API SP และ ILSAC GF-6',
-        'blog.post2.title': 'วิธีเลือกน้ำมันไฮดรอลิกที่เหมาะสม',
-        'blog.post3.title': 'แนวโน้มตลาดน้ำมันหล่อลื่นเอเชียตะวันออกเฉียงใต้ 2026',
+        'banner.h1': '???????????????????????????????????',
+        'banner.sub': '15+ ???????????? | OEM/ODM | ?????????????',
+        'banner.cta1': '<i class="fas fa-file-invoice"></i> ????????????????',
+        'banner.cta2': '<i class="fas fa-box"></i> ????????',
+        'inquiry.submit': '????????', 'inquiry.addToList': '?????????????',
+        'inquiry.list': '????????????', 'inquiry.sendWhatsApp': '??????? WhatsApp',
+        'inquiry.empty': '????????????????????', 'inquiry.selectFirst': '????????????????????',
+        'inquiry.thankYou': '??????! ????????? WhatsApp...',
+        'inquire.now': '?????????', 'inquire.viaWhatsApp': '?????????? WhatsApp',
+        'inquire.detailNote': '?????????????????????????????????',
+        'search.placeholder': '???????????...', 'search.noResult': '???????????',
+        'pagination.next': '?????',
+        'sidebar.attribute': '??????', 'sidebar.service': '??????��', 'sidebar.moq': 'MOQ��',
+        'sidebar.spec': '???????��', 'sidebar.leadtime': '????????��', 'sidebar.days': '7-15 ???',
+        'sidebar.tags': '????',
+        'contact.title': '?????????', 'contact.desc': '?????????????????????????????????????????????????? ??????????????? ???????????? 2 ??.',
+        'contact.address_label': '???????', 'contact.address': '?????????? ????????? ?????????',
+        'contact.hours_label': '?????????', 'contact.hours': '?????? - ?????: 8:00 - 18:00 (UTC+8)',
+        'contact.form_title': '??????????', 'contact.name': '????', 'contact.phone': '???/WhatsApp',
+        'contact.company': '??????', 'contact.product': '?????????????', 'contact.select': '-- ????????? --',
+        'contact.message': '???????', 'contact.submit': '<i class="fas fa-paper-plane"></i> ??????????',
+        'faq.title': '??????????????',
+        'faq.q1': '???????????????? (MOQ) ?????????', 'faq.a1': 'MOQ ??????? 500 ???? (???????) ???? 200 ??? (??????????)',
+        'faq.q2': '???????? OEM/ODM ????', 'faq.a2': '???! ??????????????? ??????????????????????????????????',
+        'faq.q3': '?????????????????????????', 'faq.a3': '???????????????????????? API, ILSAC, ISO',
+        'faq.q4': '????????????????', 'faq.a4': '7-15 ???????? ?????????? ??????? 15-25 ???',
+        'faq.q5': '??????????????', 'faq.a5': 'T/T, L/C, Western Union. ?????????? 30% ????? + 70% ??????????',
+        'faq.q6': '????????????????????', 'faq.a6': '??? ????????????????? 1L/??????',
+        'about.title': '????????? BOERJIA', 'about.desc1': 'Shandong Boerjia ??????????? 2007 ??????????????????????????????????????????????? 15 ?? ?????????????????????? API, ILSAC, ISO', 'about.desc2': '???????????? 30 ?????? ?????? OEM/ODM ??????? MOQ ???????? ?????????????',
+        'about.stat1': '????????????', 'about.stat2': '?????????', 'about.stat3': '??????', 'about.stat4': '??????',
+        'about.f1t': 'R&D', 'about.f1d': '??????????????????????', 'about.f2t': '?????????????', 'about.f2d': '???????????????????',
+        'about.f3t': '??????', 'about.f3d': '??????? API, ISO', 'about.f4t': '?????????????', 'about.f4d': '30+ ??????',
+        'about.f5t': 'OEM/ODM', 'about.f5d': '???????????', 'about.f6t': '???????? 24/7', 'about.f6d': 'WhatsApp, Email, WeChat',
+        'blog.post1.title': '??????????????????? API SP ??? ILSAC GF-6',
+        'blog.post2.title': '?????????????????????????????????',
+        'blog.post3.title': '??????????????????????????????????????????????? 2026',
     },
     ms: {
         'topbar.cert': 'Sijil', 'nav.home': 'Utama', 'nav.about': 'Tentang Kami', 'nav.products': 'Produk',
@@ -2715,8 +2715,8 @@ const translations = {
         'inquire.detailNote': 'Hubungi kami untuk spesifikasi dan sebut harga.',
         'search.placeholder': 'Cari produk...', 'search.noResult': 'Produk tidak dijumpai.',
         'pagination.next': 'Seterusnya',
-        'sidebar.attribute': 'Atribut', 'sidebar.service': 'Perkhidmatan：', 'sidebar.moq': 'MOQ：',
-        'sidebar.spec': 'Spesifikasi：', 'sidebar.leadtime': 'Masa penghantaran：', 'sidebar.days': '7-15 Hari',
+        'sidebar.attribute': 'Atribut', 'sidebar.service': 'Perkhidmatan��', 'sidebar.moq': 'MOQ��',
+        'sidebar.spec': 'Spesifikasi��', 'sidebar.leadtime': 'Masa penghantaran��', 'sidebar.days': '7-15 Hari',
         'sidebar.tags': 'Tag',
         'contact.title': 'Hubungi Kami', 'contact.desc': 'Sedia untuk memesan atau perlukan penyelesaian pelincir khas? Hubungi kami. Respons dalam 2 jam waktu bekerja.',
         'contact.address_label': 'Alamat', 'contact.address': 'Bandar Dongying, Wilayah Shandong, China',
@@ -2741,53 +2741,53 @@ const translations = {
         'blog.post3.title': 'Prospek Pasaran Pelincir Asia Tenggara 2026',
     },
     ar: {
-        'topbar.cert': 'شهادة', 'nav.home': 'الرئيسية', 'nav.about': 'من نحن', 'nav.products': 'المنتجات',
-        'products.all': 'جميع المنتجات', 'products.gasoline': 'زيت المحرك', 'products.diesel': 'زيت محرك الديزل',
-        'products.transmission': 'سائل ناقل الحركة',
-        'products.hydraulic': 'زيت هيدروليكي', 'products.gear': 'زيت التروس', 'products.grease': 'شحم التشحيم',
-        'products.psf': 'زيت التوجيه المعزز', 'products.brake': 'سائل الفرامل', 'products.coolant': 'سائل التبريد',
-        'products.title': 'منتجاتنا', 'products.categories': 'فئات المنتجات',
-        'nav.news': 'الأخبار', 'nav.contact': 'اتصل بنا', 'nav.faq': 'الأسئلة الشائعة',
-        'footer.contact': 'اتصل بنا', 'footer.nav': 'التنقل',
+        'topbar.cert': '?????', 'nav.home': '????????', 'nav.about': '?? ???', 'nav.products': '????????',
+        'products.all': '???? ????????', 'products.gasoline': '??? ??????', 'products.diesel': '??? ???? ??????',
+        'products.transmission': '???? ???? ??????',
+        'products.hydraulic': '??? ?????????', 'products.gear': '??? ??????', 'products.grease': '??? ???????',
+        'products.psf': '??? ??????? ??????', 'products.brake': '???? ???????', 'products.coolant': '???? ???????',
+        'products.title': '????????', 'products.categories': '???? ????????',
+        'nav.news': '???????', 'nav.contact': '???? ???', 'nav.faq': '??????? ???????',
+        'footer.contact': '???? ???', 'footer.nav': '??????',
         'footer.copyright': '&copy; 2007-2026 SHANDONG BOERJIA PETROCHEMICAL TECHNOLOGY CO., LTD.',
-        'footer.inquiry': 'استفسار سريع',
-        'footer.wechat': 'وي تشات: +86 13731735051',
-        'banner.h1': 'زيوت تشحيم عالية الجودة للأسواق العالمية',
-        'banner.sub': 'أكثر من 15 عامًا من الخبرة | OEM/ODM | شحن عالمي',
-        'banner.cta1': '<i class="fas fa-file-invoice"></i> احصل على عرض سعر مجاني',
-        'banner.cta2': '<i class="fas fa-box"></i> عرض المنتجات',
-        'inquiry.submit': 'إرسال استفسار', 'inquiry.addToList': 'أضف للقائمة',
-        'inquiry.list': 'قائمة الاستفسار', 'inquiry.sendWhatsApp': 'إرسال عبر واتساب',
-        'inquiry.empty': 'لم يتم اختيار منتجات', 'inquiry.selectFirst': 'يرجى اختيار المنتجات أولاً.',
-        'inquiry.thankYou': 'شكرًا! جاري التحويل إلى واتساب...',
-        'inquire.now': 'استفسار الآن', 'inquire.viaWhatsApp': 'استفسار عبر واتساب',
-        'inquire.detailNote': 'اتصل بنا مباشرة للمواصفات والأسعار.',
-        'search.placeholder': 'البحث عن منتجات...', 'search.noResult': 'لم يتم العثور على منتجات.',
-        'pagination.next': 'التالي',
-        'sidebar.attribute': 'المواصفات', 'sidebar.service': 'الخدمة：', 'sidebar.moq': 'الحد الأدنى：',
-        'sidebar.spec': 'المعيار：', 'sidebar.leadtime': 'مدة التسليم：', 'sidebar.days': '7-15 يوم',
-        'sidebar.tags': 'التصنيفات',
-        'contact.title': 'اتصل بنا', 'contact.desc': 'جاهز للطلب أو تحتاج حلاً مخصصًا للزيوت؟ تواصل معنا. نرد خلال ساعتين في أوقات العمل.',
-        'contact.address_label': 'العنوان', 'contact.address': 'مدينة دونغينغ، مقاطعة شاندونغ، الصين',
-        'contact.hours_label': 'ساعات العمل', 'contact.hours': 'الإثنين - السبت: 8:00 - 18:00 (UTC+8)',
-        'contact.form_title': 'أرسل رسالة', 'contact.name': 'الاسم', 'contact.phone': 'هاتف/واتساب',
-        'contact.company': 'الشركة', 'contact.product': 'المنتجات المطلوبة', 'contact.select': '-- اختر الفئة --',
-        'contact.message': 'الرسالة', 'contact.submit': '<i class="fas fa-paper-plane"></i> إرسال الرسالة',
-        'faq.title': 'الأسئلة الشائعة',
-        'faq.q1': 'ما هو الحد الأدنى للطلب (MOQ)؟', 'faq.a1': 'الحد الأدنى 500 لتر للطلبات بالجملة أو 200 عبوة للمنتجات المعبأة.',
-        'faq.q2': 'هل تقدمون خدمات OEM/ODM؟', 'faq.a2': 'نعم! نقدم خدمات OEM/ODM كاملة بما في ذلك التركيبات المخصصة.',
-        'faq.q3': 'ما الشهادات التي تمتلكها منتجاتكم؟', 'faq.a3': 'منتجاتنا حاصلة على شهادات API, ILSAC, ISO.',
-        'faq.q4': 'كم يستغرق التسليم؟', 'faq.a4': '7-15 يوم عمل. الشحن البحري: جنوب شرق آسيا 15-25 يوم.',
-        'faq.q5': 'ما طرق الدفع المقبولة؟', 'faq.a5': 'حوالة بنكية T/T، اعتماد مستندي L/C، ويسترن يونيون.',
-        'faq.q6': 'هل يمكنني الحصول على عينات مجانية؟', 'faq.a6': 'نعم، عينات مجانية (بحد أقصى 1 لتر/منتج).',
-        'about.title': 'عن BOERJIA', 'about.desc1': 'شاندونغ بويرجيا للبترولكيماويات، تأسست 2007، شركة متخصصة في الزيوت بخبرة تتجاوز 15 عامًا. منتجات معتمدة API و ISO.', 'about.desc2': 'تصدير إلى أكثر من 30 دولة. خدمات OEM/ODM كاملة.',
-        'about.stat1': 'سنوات خبرة', 'about.stat2': 'منتج', 'about.stat3': 'دولة', 'about.stat4': 'عميل',
-        'about.f1t': 'البحث والتطوير', 'about.f1d': 'مختبر متخصص', 'about.f2t': 'مصنع حديث', 'about.f2d': 'خطوط إنتاج آلية',
-        'about.f3t': 'جودة معتمدة', 'about.f3d': 'شهادات API, ISO', 'about.f4t': 'شحن عالمي', 'about.f4d': 'أكثر من 30 دولة',
-        'about.f5t': 'OEM/ODM', 'about.f5d': 'تركيب مخصص', 'about.f6t': 'دعم 24/7', 'about.f6d': 'واتساب، بريد، وي تشات',
-        'blog.post1.title': 'فهم معايير API SP و ILSAC GF-6',
-        'blog.post2.title': 'كيفية اختيار الزيت الهيدروليكي المناسب',
-        'blog.post3.title': 'توقعات سوق التشحيم في جنوب شرق آسيا 2026',
+        'footer.inquiry': '??????? ????',
+        'footer.wechat': '?? ????: +86 13731735051',
+        'banner.h1': '???? ????? ????? ?????? ??????? ????????',
+        'banner.sub': '???? ?? 15 ????? ?? ?????? | OEM/ODM | ??? ?????',
+        'banner.cta1': '<i class="fas fa-file-invoice"></i> ???? ??? ??? ??? ?????',
+        'banner.cta2': '<i class="fas fa-box"></i> ??? ????????',
+        'inquiry.submit': '????? ???????', 'inquiry.addToList': '??? ???????',
+        'inquiry.list': '????? ?????????', 'inquiry.sendWhatsApp': '????? ??? ??????',
+        'inquiry.empty': '?? ??? ?????? ??????', 'inquiry.selectFirst': '???? ?????? ???????? ?????.',
+        'inquiry.thankYou': '?????! ???? ??????? ??? ??????...',
+        'inquire.now': '??????? ????', 'inquire.viaWhatsApp': '??????? ??? ??????',
+        'inquire.detailNote': '???? ??? ?????? ????????? ????????.',
+        'search.placeholder': '????? ?? ??????...', 'search.noResult': '?? ??? ?????? ??? ??????.',
+        'pagination.next': '??????',
+        'sidebar.attribute': '?????????', 'sidebar.service': '??????��', 'sidebar.moq': '???? ??????��',
+        'sidebar.spec': '???????��', 'sidebar.leadtime': '??? ???????��', 'sidebar.days': '7-15 ???',
+        'sidebar.tags': '?????????',
+        'contact.title': '???? ???', 'contact.desc': '???? ????? ?? ????? ???? ?????? ??????? ????? ????. ??? ???? ?????? ?? ????? ?????.',
+        'contact.address_label': '???????', 'contact.address': '????? ???????? ?????? ???????? ?????',
+        'contact.hours_label': '????? ?????', 'contact.hours': '??????? - ?????: 8:00 - 18:00 (UTC+8)',
+        'contact.form_title': '???? ?????', 'contact.name': '?????', 'contact.phone': '????/??????',
+        'contact.company': '??????', 'contact.product': '???????? ????????', 'contact.select': '-- ???? ????? --',
+        'contact.message': '???????', 'contact.submit': '<i class="fas fa-paper-plane"></i> ????? ???????',
+        'faq.title': '??????? ???????',
+        'faq.q1': '?? ?? ???? ?????? ????? (MOQ)?', 'faq.a1': '???? ?????? 500 ??? ??????? ??????? ?? 200 ???? ???????? ???????.',
+        'faq.q2': '?? ?????? ????? OEM/ODM?', 'faq.a2': '???! ???? ????? OEM/ODM ????? ??? ?? ??? ????????? ???????.',
+        'faq.q3': '?? ???????? ???? ??????? ?????????', 'faq.a3': '???????? ????? ??? ?????? API, ILSAC, ISO.',
+        'faq.q4': '?? ?????? ????????', 'faq.a4': '7-15 ??? ???. ????? ??????: ???? ??? ???? 15-25 ???.',
+        'faq.q5': '?? ??? ????? ?????????', 'faq.a5': '????? ????? T/T? ?????? ?????? L/C? ?????? ??????.',
+        'faq.q6': '?? ?????? ?????? ??? ????? ???????', 'faq.a6': '???? ????? ?????? (??? ???? 1 ???/????).',
+        'about.title': '?? BOERJIA', 'about.desc1': '??????? ??????? ???????????????? ????? 2007? ???? ?????? ?? ?????? ????? ?????? 15 ?????. ?????? ?????? API ? ISO.', 'about.desc2': '????? ??? ???? ?? 30 ????. ????? OEM/ODM ?????.',
+        'about.stat1': '????? ????', 'about.stat2': '????', 'about.stat3': '????', 'about.stat4': '????',
+        'about.f1t': '????? ????????', 'about.f1d': '????? ?????', 'about.f2t': '???? ????', 'about.f2d': '???? ????? ????',
+        'about.f3t': '???? ??????', 'about.f3d': '?????? API, ISO', 'about.f4t': '??? ?????', 'about.f4d': '???? ?? 30 ????',
+        'about.f5t': 'OEM/ODM', 'about.f5d': '????? ????', 'about.f6t': '??? 24/7', 'about.f6d': '??????? ????? ?? ????',
+        'blog.post1.title': '??? ?????? API SP ? ILSAC GF-6',
+        'blog.post2.title': '????? ?????? ????? ??????????? ???????',
+        'blog.post3.title': '?????? ??? ??????? ?? ???? ??? ???? 2026',
     }
 };
 
@@ -2795,12 +2795,12 @@ let currentLang = 'en';
 
 // ===== PRODUCT NAME TRANSLATIONS =====
 const productNames = {
-    zh: {'sp-5w40':'SP 5W-40 全合成发动机油','sp-gf6':'SP GF-6 5W-30 机油','s6-5w30':'S6 5W-30 全合成','qn-f6':'QN-F6 发动机油 SL/CF 5W-30','cj4':'柴机油 CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 柴油 20W-50','5000-4t':'5000 合成 4T 摩托车油','pao-4t':'PAO 4T 摩托车 SP 5W-40','sm-4t':'SM 10W-40 4T 摩托车油','atf-6hp':'ATF-6HP 6速自动变速箱油','lhm-46':'L-HM 液压油 46#','lhm-68':'L-HM 液压油 68#','lhv-46':'L-HV 低温液压油','ep-150':'工业齿轮油 EP 150','ep-220':'工业齿轮油 EP 220','lithium-grease':'锂基润滑脂','mos2-grease':'二硫化钼润滑脂','sulfonate-grease':'复合钙基磺酸润滑脂','polyurea-grease':'聚脲润滑脂','bentonite-grease':'膨润土润滑脂','aluminum-grease':'铝复合润滑脂','dot4':'DOT 4 刹车油','dot3':'DOT 3 刹车油','marine':'船用润滑油','fuel-no4':'4号工业燃料油'},
-    vi: {'sp-5w40':'Dầu máy tổng hợp SP 5W-40','sp-gf6':'Dầu máy SP GF-6 5W-30','s6-5w30':'S6 5W-30 Tổng hợp','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'Dầu diesel CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 Diesel 20W-50','5000-4t':'Dầu xe máy 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP hộp số 6 cấp','lhm-46':'Dầu thủy lực L-HM 46#','lhm-68':'Dầu thủy lực L-HM 68#','lhv-46':'Dầu thủy lực nhiệt độ thấp L-HV','ep-150':'Dầu bánh răng EP 150','ep-220':'Dầu bánh răng EP 220','lithium-grease':'Mỡ Lithium','mos2-grease':'Mỡ MoS2','sulfonate-grease':'Mỡ Calcium Sulfonate','polyurea-grease':'Mỡ Polyurea','bentonite-grease':'Mỡ Bentonite','aluminum-grease':'Mỡ Aluminum Complex','dot4':'Dầu phanh DOT 4','dot3':'Dầu phanh DOT 3','marine':'Dầu hàng hải','fuel-no4':'Dầu nhiên liệu công nghiệp No.4'},
+    zh: {'sp-5w40':'SP 5W-40 ȫ�ϳɷ�������','sp-gf6':'SP GF-6 5W-30 ����','s6-5w30':'S6 5W-30 ȫ�ϳ�','qn-f6':'QN-F6 �������� SL/CF 5W-30','cj4':'����� CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 ���� 20W-50','5000-4t':'5000 �ϳ� 4T Ħ�г���','pao-4t':'PAO 4T Ħ�г� SP 5W-40','sm-4t':'SM 10W-40 4T Ħ�г���','atf-6hp':'ATF-6HP 6���Զ���������','lhm-46':'L-HM Һѹ�� 46#','lhm-68':'L-HM Һѹ�� 68#','lhv-46':'L-HV ����Һѹ��','ep-150':'��ҵ������ EP 150','ep-220':'��ҵ������ EP 220','lithium-grease':'﮻���֬','mos2-grease':'��������֬','sulfonate-grease':'���ϸƻ�������֬','polyurea-grease':'������֬','bentonite-grease':'��������֬','aluminum-grease':'��������֬','dot4':'DOT 4 ɲ����','dot3':'DOT 3 ɲ����','marine':'��������','fuel-no4':'4�Ź�ҵȼ����'},
+    vi: {'sp-5w40':'D?u m��y t?ng h?p SP 5W-40','sp-gf6':'D?u m��y SP GF-6 5W-30','s6-5w30':'S6 5W-30 T?ng h?p','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'D?u diesel CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 Diesel 20W-50','5000-4t':'D?u xe m��y 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP h?p s? 6 c?p','lhm-46':'D?u th?y l?c L-HM 46#','lhm-68':'D?u th?y l?c L-HM 68#','lhv-46':'D?u th?y l?c nhi?t ?? th?p L-HV','ep-150':'D?u b��nh r?ng EP 150','ep-220':'D?u b��nh r?ng EP 220','lithium-grease':'M? Lithium','mos2-grease':'M? MoS2','sulfonate-grease':'M? Calcium Sulfonate','polyurea-grease':'M? Polyurea','bentonite-grease':'M? Bentonite','aluminum-grease':'M? Aluminum Complex','dot4':'D?u phanh DOT 4','dot3':'D?u phanh DOT 3','marine':'D?u h��ng h?i','fuel-no4':'D?u nhi��n li?u c?ng nghi?p No.4'},
     id: {'sp-5w40':'Minyak Mesin Sintetis SP 5W-40','sp-gf6':'Minyak Mesin SP GF-6 5W-30','s6-5w30':'S6 5W-30 Sintetis','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'Minyak Diesel CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 Diesel 20W-50','5000-4t':'Minyak Motor 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP Transmisi 6-Speed','lhm-46':'Minyak Hidrolik L-HM 46#','lhm-68':'Minyak Hidrolik L-HM 68#','lhv-46':'Minyak Hidrolik Suhu Rendah L-HV','ep-150':'Minyak Gear EP 150','ep-220':'Minyak Gear EP 220','lithium-grease':'Gemuk Lithium','mos2-grease':'Gemuk MoS2','sulfonate-grease':'Gemuk Calcium Sulfonate','polyurea-grease':'Gemuk Polyurea','bentonite-grease':'Gemuk Bentonite','aluminum-grease':'Gemuk Aluminum Complex','dot4':'Minyak Rem DOT 4','dot3':'Minyak Rem DOT 3','marine':'Minyak Kelautan','fuel-no4':'Minyak Bakar Industri No.4'},
-    th: {'sp-5w40':'น้ำมันเครื่องสังเคราะห์ SP 5W-40','sp-gf6':'น้ำมันเครื่อง SP GF-6 5W-30','s6-5w30':'S6 5W-30 สังเคราะห์','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'น้ำมันดีเซล CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 ดีเซล 20W-50','5000-4t':'น้ำมันจักรยานยนต์ 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP เกียร์อัตโนมัติ 6 สปีด','lhm-46':'น้ำมันไฮดรอลิก L-HM 46#','lhm-68':'น้ำมันไฮดรอลิก L-HM 68#','lhv-46':'น้ำมันไฮดรอลิกต่ำ L-HV','ep-150':'น้ำมันเกียร์ EP 150','ep-220':'น้ำมันเกียร์ EP 220','lithium-grease':'จาระบีลิเธียม','mos2-grease':'จาระบีโมลิบดีนัม','sulfonate-grease':'จาระบีแคลเซียมซัลโฟเนต','polyurea-grease':'จาระบีโพลียูรี','bentonite-grease':'จาระบีเบนโทไนต์','aluminum-grease':'จาระบีอะลูมินัม','dot4':'น้ำมันเบรก DOT 4','dot3':'น้ำมันเบรก DOT 3','marine':'น้ำมันเดินเรือ','fuel-no4':'น้ำมันเชื้อเพลิงอุตสาหกรรม No.4'},
+    th: {'sp-5w40':'??????????????????????? SP 5W-40','sp-gf6':'????????????? SP GF-6 5W-30','s6-5w30':'S6 5W-30 ??????????','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'??????????? CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 ????? 20W-50','5000-4t':'????????????????? 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP ??????????????? 6 ????','lhm-46':'?????????????? L-HM 46#','lhm-68':'?????????????? L-HM 68#','lhv-46':'????????????????? L-HV','ep-150':'???????????? EP 150','ep-220':'???????????? EP 220','lithium-grease':'?????????????','mos2-grease':'????????????????','sulfonate-grease':'??????????????????????','polyurea-grease':'??????????????','bentonite-grease':'???????????????','aluminum-grease':'???????????????','dot4':'?????????? DOT 4','dot3':'?????????? DOT 3','marine':'??????????????','fuel-no4':'?????????????????????????? No.4'},
     ms: {'sp-5w40':'Minyak Enjin Sintetik SP 5W-40','sp-gf6':'Minyak Enjin SP GF-6 5W-30','s6-5w30':'S6 5W-30 Sintetik','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'Minyak Diesel CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 Diesel 20W-50','5000-4t':'Minyak Motosikal 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP Transmisi 6-Kelajuan','lhm-46':'Minyak Hidraulik L-HM 46#','lhm-68':'Minyak Hidraulik L-HM 68#','lhv-46':'Minyak Hidraulik Suhu Rendah L-HV','ep-150':'Minyak Gear EP 150','ep-220':'Minyak Gear EP 220','lithium-grease':'Gris Lithium','mos2-grease':'Gris MoS2','sulfonate-grease':'Gris Calcium Sulfonate','polyurea-grease':'Gris Polyurea','bentonite-grease':'Gris Bentonite','aluminum-grease':'Gris Aluminum Complex','dot4':'Cecair Brek DOT 4','dot3':'Cecair Brek DOT 3','marine':'Minyak Marin','fuel-no4':'Minyak Api Industri No.4'},
-    ar: {'sp-5w40':'زيت محرك صناعي SP 5W-40','sp-gf6':'زيت محرك SP GF-6 5W-30','s6-5w30':'S6 5W-30 صناعي','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'زيت ديزل CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 ديزل 20W-50','5000-4t':'زيت دراجة نارية 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP ناقل حركة 6 سرعات','lhm-46':'زيت هيدروليكي L-HM 46#','lhm-68':'زيت هيدروليكي L-HM 68#','lhv-46':'زيت هيدروليكي منخفض L-HV','ep-150':'زيت تروس EP 150','ep-220':'زيت تروس EP 220','lithium-grease':'شحم ليثيوم','mos2-grease':'شحم موليبدنوم','sulfonate-grease':'شحم كالسيوم سلفونات','polyurea-grease':'شحم بولي يوريا','bentonite-grease':'شحم بينتونايت','aluminum-grease':'شحم ألومنيوم','dot4':'سائل فرامل DOT 4','dot3':'سائل فرامل DOT 3','marine':'زيت بحري','fuel-no4':'زيت وقود صناعي No.4'},
+    ar: {'sp-5w40':'??? ???? ????? SP 5W-40','sp-gf6':'??? ???? SP GF-6 5W-30','s6-5w30':'S6 5W-30 ?????','qn-f6':'QN-F6 SL/CF 5W-30','cj4':'??? ???? CJ-4/SN+ 10W-40','cf4':'HX6000 CF-4 ???? 20W-50','5000-4t':'??? ????? ????? 5000 4T','pao-4t':'PAO 4T SP 5W-40','sm-4t':'SM 10W-40 4T','atf-6hp':'ATF-6HP ???? ???? 6 ?????','lhm-46':'??? ????????? L-HM 46#','lhm-68':'??? ????????? L-HM 68#','lhv-46':'??? ????????? ????? L-HV','ep-150':'??? ???? EP 150','ep-220':'??? ???? EP 220','lithium-grease':'??? ??????','mos2-grease':'??? ?????????','sulfonate-grease':'??? ??????? ???????','polyurea-grease':'??? ???? ?????','bentonite-grease':'??? ?????????','aluminum-grease':'??? ????????','dot4':'???? ????? DOT 4','dot3':'???? ????? DOT 3','marine':'??? ????','fuel-no4':'??? ???? ????? No.4'},
 };
 
 function getProductName(p) {
@@ -2814,7 +2814,7 @@ function switchLang(lang) {
     if (!t) return;
 
     // Update current lang display
-    const langNames = {en:'English',zh:'中文',vi:'Tiếng Việt',id:'Bahasa Indonesia',th:'ไทย',ms:'Bahasa Melayu',ar:'العربية'};
+    const langNames = {en:'English',zh:'����',vi:'Ti?ng Vi?t',id:'Bahasa Indonesia',th:'???',ms:'Bahasa Melayu',ar:'???????'};
     document.getElementById('currentLang').textContent = langNames[lang] || lang;
     document.documentElement.lang = lang;
 
